@@ -25,7 +25,7 @@ export default function PageBanner({
     <section className="dark-banner relative overflow-hidden text-white">
       <div className="container-clinic grid min-h-[190px] items-center gap-6 py-6 md:min-h-[220px] md:grid-cols-[1.1fr_0.9fr] lg:grid-cols-[1.2fr_0.8fr] md:py-0">
         <div className="relative z-10 py-4 sm:py-6">
-          <div className="mb-2.5 flex items-center gap-1.5 text-[12px] font-medium text-blue-200">
+          <div className="mb-2.5 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-blue-200">
             <Link to="/" className="hover:text-white transition-colors">
               {breadcrumb}
             </Link>
@@ -36,7 +36,7 @@ export default function PageBanner({
             {displayTitle}
           </h1>
           {subtitle && (
-            <p className="mt-2 max-w-xl text-xs sm:text-sm leading-relaxed text-blue-100/90 font-normal">
+            <p className="mt-2 max-w-xl text-sm sm:text-base leading-relaxed text-blue-100/90 font-normal">
               {subtitle}
             </p>
           )}

@@ -48,7 +48,7 @@ export default function ChildSquint() {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <p className="mt-2 text-center text-[11px] font-medium text-slate-500">
+            <p className="mt-2 text-center text-xs font-medium text-slate-500">
               Corneal light reflection &amp; ocular alignment
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function ChildSquint() {
               What is Child Squint?
             </h2>
 
-            <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
               Squint (Strabismus) is a condition in which the eyes do not align properly. It can affect
               one eye or both eyes and may lead to lazy eye (amblyopia) and poor vision development if
               not treated early.
@@ -71,7 +71,7 @@ export default function ChildSquint() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <Eye size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Affects Vision Development
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function ChildSquint() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <HeartPulse size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   May Cause Lazy Eye
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function ChildSquint() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <ShieldAlert size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Can Impact Confidence
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function ChildSquint() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <Clock size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Early Treatment Gives Best Results
                 </span>
               </div>
@@ -117,10 +117,10 @@ export default function ChildSquint() {
         <div className="grid gap-6 md:grid-cols-3">
           {/* Card 1: Signs of Squint in Children */}
           <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:shadow-soft">
-            <h3 className="text-sm font-bold text-[#082852]">
+            <h3 className="text-base font-bold text-[#082852]">
               Signs of Squint in Children
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-600 font-medium">
+            <ul className="mt-4 flex flex-col gap-2.5 text-xs sm:text-sm text-slate-600 font-medium">
               {signs.map(sign => (
                 <li key={sign} className="flex items-start gap-2">
                   <ChevronRight size={15} className="shrink-0 text-clinic-green mt-0.5" />
@@ -132,11 +132,11 @@ export default function ChildSquint() {
 
           {/* Card 2: Treatment Options */}
           <div className="rounded-xl border border-emerald-200/60 bg-[#EDF8F2] p-5 shadow-xs">
-            <h3 className="flex items-center gap-2 text-sm font-bold text-[#082852]">
+            <h3 className="flex items-center gap-2 text-base font-bold text-[#082852]">
               <CheckSquare size={16} className="text-clinic-green" />
               Treatment Options
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-700 font-medium">
+            <ul className="mt-4 flex flex-col gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
               {treatments.map(opt => (
                 <li key={opt} className="flex items-center gap-2">
                   <div className="grid h-4 w-4 shrink-0 place-items-center rounded bg-clinic-green text-white">
@@ -155,10 +155,10 @@ export default function ChildSquint() {
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-clinic-green/30 bg-clinic-mint text-clinic-green">
               <HeartHandshake size={24} />
             </div>
-            <h3 className="mt-3 text-sm font-bold text-[#082852]">
+            <h3 className="mt-3 text-base font-bold text-[#082852]">
               We Care for Your Child
             </h3>
-            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Our child-friendly environment and expert care ensure a comfortable experience for your little one.
             </p>
           </div>

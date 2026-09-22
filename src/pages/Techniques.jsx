@@ -48,7 +48,7 @@ export default function Techniques() {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <p className="mt-2 text-center text-[11px] font-medium text-slate-500">
+            <p className="mt-2 text-center text-xs font-medium text-slate-500">
               High precision microscopic ocular realignment
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Techniques() {
               Our Advanced Techniques
             </h2>
 
-            <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
               We employ world-class microscopic surgical techniques including adjustable sutures,
               minimally invasive strabismus surgery (MISS), and sophisticated binocular vision assessment
               tools to deliver predictable and lasting realignment.
@@ -71,7 +71,7 @@ export default function Techniques() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <Eye size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Microscopic Precision
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function Techniques() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <HeartPulse size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Adjustable Sutures
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function Techniques() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <ShieldAlert size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Safety First Protocol
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function Techniques() {
                 <div className="grid h-7 w-7 place-items-center rounded-full bg-white text-clinic-green shadow-xs">
                   <Clock size={14} />
                 </div>
-                <span className="mt-2 text-[10px] font-bold leading-tight text-slate-700">
+                <span className="mt-2 text-xs font-bold leading-tight text-slate-700">
                   Fast Healing &amp; Return
                 </span>
               </div>
@@ -117,10 +117,10 @@ export default function Techniques() {
         <div className="grid gap-6 md:grid-cols-3">
           {/* Card 1: Key Methods */}
           <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:shadow-soft">
-            <h3 className="text-sm font-bold text-[#082852]">
+            <h3 className="text-base font-bold text-[#082852]">
               Key Diagnostic &amp; Surgical Methods
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-600 font-medium">
+            <ul className="mt-4 flex flex-col gap-2.5 text-xs sm:text-sm text-slate-600 font-medium">
               {methods.map(item => (
                 <li key={item} className="flex items-start gap-2">
                   <ChevronRight size={15} className="shrink-0 text-clinic-green mt-0.5" />
@@ -132,11 +132,11 @@ export default function Techniques() {
 
           {/* Card 2: Clinical Advantages */}
           <div className="rounded-xl border border-emerald-200/60 bg-[#EDF8F2] p-5 shadow-xs">
-            <h3 className="flex items-center gap-2 text-sm font-bold text-[#082852]">
+            <h3 className="flex items-center gap-2 text-base font-bold text-[#082852]">
               <CheckSquare size={16} className="text-clinic-green" />
               Clinical Advantages
             </h3>
-            <ul className="mt-4 flex flex-col gap-2.5 text-xs text-slate-700 font-medium">
+            <ul className="mt-4 flex flex-col gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
               {advantages.map(item => (
                 <li key={item} className="flex items-center gap-2">
                   <div className="grid h-4 w-4 shrink-0 place-items-center rounded bg-clinic-green text-white">
@@ -155,10 +155,10 @@ export default function Techniques() {
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-clinic-green/30 bg-clinic-mint text-clinic-green">
               <HeartHandshake size={24} />
             </div>
-            <h3 className="mt-3 text-sm font-bold text-[#082852]">
+            <h3 className="mt-3 text-base font-bold text-[#082852]">
               State-of-the-Art Infrastructure
             </h3>
-            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Equipped with precision surgical microscopes, sterile modular operation suites, and orthoptic diagnostics.
             </p>
           </div>

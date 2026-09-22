@@ -63,7 +63,7 @@ export default function About() {
               <span className="block">Better Vision</span>
             </h2>
 
-            <p className="mt-4 text-xs leading-relaxed text-slate-600 sm:text-sm">
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
               At Child Eye Care &amp; Squint Clinic, we are committed to providing world-class squint
               treatment for children and adults. With advanced technology and expertise, we ensure
               the best possible outcomes for our patients.
@@ -71,7 +71,7 @@ export default function About() {
 
             <ul className="mt-5 flex flex-col gap-2.5">
               {checklist.map(item => (
-                <li key={item} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                <li key={item} className="flex items-center gap-2 text-sm sm:text-[15px] font-semibold text-slate-700">
                   <CheckCircle2 size={16} className="shrink-0 text-clinic-green fill-clinic-mint" />
                   <span>{item}</span>
                 </li>
@@ -81,7 +81,7 @@ export default function About() {
             <div className="mt-6">
               <button
                 type="button"
-                className="green-btn !rounded-md !py-2.5 !px-6 text-xs font-bold"
+                className="green-btn !rounded-md !py-2.5 !px-6 text-sm font-bold"
               >
                 Know More
               </button>
@@ -101,7 +101,7 @@ export default function About() {
                 <div className="mt-2 text-xl font-black text-[#082852] sm:text-2xl">
                   {value}
                 </div>
-                <div className="mt-1 text-[11px] font-medium text-slate-500">
+                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-500">
                   {label}
                 </div>
               </div>
@@ -134,10 +134,10 @@ export default function About() {
                   <Icon size={22} strokeWidth={1.8} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#082852]">
+                  <h3 className="text-base font-bold text-[#082852]">
                     {title}
                   </h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-600">
                     {text}
                   </p>
                 </div>

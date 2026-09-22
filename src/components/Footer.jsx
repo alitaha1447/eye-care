@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="mt-2 text-[11px] leading-relaxed text-blue-100/75 max-w-[210px]">
+            <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-blue-100/80 max-w-[240px]">
               Specialized care for squint (strabismus) in children and adults.
             </p>
 
@@ -94,10 +94,10 @@ export default function Footer() {
 
           {/* Column 2: QUICK LINKS (2 subcolumns) */}
           <div className="lg:border-l lg:border-white/10 lg:pl-6">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-wider text-white mb-2.5">
+            <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               QUICK LINKS
             </h3>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[11px] text-blue-100/80">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-[13px] text-blue-100/80">
               <Link
                 to="/"
                 className="transition hover:text-white">Home</Link>
@@ -138,10 +138,10 @@ export default function Footer() {
 
           {/* Column 3: CONTACT US */}
           <div className="lg:border-l lg:border-white/10 lg:pl-6">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-wider text-white mb-2.5">
+            <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               CONTACT US
             </h3>
-            <div className="flex flex-col gap-2.5 text-[11px] text-blue-100/80">
+            <div className="flex flex-col gap-2.5 text-xs sm:text-[13px] text-blue-100/80">
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="shrink-0 text-blue-200 mt-0.5" />
                 <div className="leading-tight">
@@ -169,7 +169,7 @@ export default function Footer() {
 
           {/* Column 4: OUR LOCATION (Map preview with View on Google Maps pill) */}
           <div className="lg:border-l lg:border-white/10 lg:pl-6">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-wider text-white mb-2.5">
+            <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               OUR LOCATION
             </h3>
             <div className="relative w-full max-w-[185px] overflow-hidden rounded-xl border border-white/20 shadow-md">
@@ -182,9 +182,9 @@ export default function Footer() {
                 href="https://maps.google.com/?q=Child+Eye+Care+and+Squint+Clinic+Banjara+Hills+Hyderabad"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 bg-[#082852] py-1.5 px-2 text-[10px] font-bold text-white transition hover:bg-[#0c3972]"
+                className="flex items-center justify-center gap-1.5 bg-[#082852] py-1.5 px-2 text-[11px] font-bold text-white transition hover:bg-[#0c3972]"
               >
-                <Search size={10} className="text-blue-200" />
+                <Search size={11} className="text-blue-200" />
                 <span>View on Google Maps</span>
               </a>
             </div>
@@ -192,10 +192,10 @@ export default function Footer() {
 
           {/* Column 5: WORKING HOURS */}
           <div className="lg:border-l lg:border-white/10 lg:pl-6">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-wider text-white mb-2.5">
+            <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               WORKING HOURS
             </h3>
-            <div className="text-[11px] leading-snug">
+            <div className="text-xs sm:text-[13px] leading-snug">
               <div className="font-semibold text-white">Monday – Saturday</div>
               <div className="text-blue-100/80">10:00 AM – 7:00 PM</div>
 
@@ -208,7 +208,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-[#04152D] py-3">
-        <div className="container-clinic flex flex-col items-center justify-between gap-1.5 text-[11px] text-blue-100/60 sm:flex-row">
+        <div className="container-clinic flex flex-col items-center justify-between gap-1.5 text-xs text-blue-100/70 sm:flex-row">
           <div>
             &copy; 2025 Child Eye Care &amp; Squint Clinic. All Rights Reserved.
           </div>
