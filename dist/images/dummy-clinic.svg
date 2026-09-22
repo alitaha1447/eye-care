@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#dcecf8"/><stop offset=".55" stop-color="#eef8f2"/><stop offset="1" stop-color="#cfe1ef"/></linearGradient></defs>
-<rect width="1200" height="800" fill="url(#g)"/>
-<rect x="120" y="150" width="960" height="500" rx="36" fill="#ffffff" opacity=".65"/>
-<circle cx="600" cy="350" r="120" fill="#092c61" opacity=".12"/>
-<path d="M440 350c80-90 240-90 320 0-80 90-240 90-320 0Z" fill="none" stroke="#092c61" stroke-width="18"/>
-<circle cx="600" cy="350" r="48" fill="#3b8d62"/>
-<text x="600" y="570" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#092c61">Clinic Dummy Image</text>
-</svg>
