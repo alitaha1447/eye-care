@@ -226,7 +226,7 @@ export default function Home() {
         </a>
 
         <a
-          href="https://maps.google.com/?q=Child+Eye+Care+and+Squint+Clinic+Banjara+Hills+Hyderabad"
+          href="https://www.google.com/maps?ll=22.70521,75.908882&z=15&t=m&hl=en&gl=IN&mapclient=embed&cid=9105442730508839869"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 rounded-l-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-card transition-transform hover:-translate-x-1"

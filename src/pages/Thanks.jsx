@@ -86,7 +86,7 @@ export default function Thanks() {
               </div>
               <div>
                 <div className="text-[11px] font-semibold text-slate-400">Location</div>
-                <div className="text-xs font-bold text-[#082852]">Banjara Hills, Hyderabad</div>
+                <div className="text-xs font-bold text-[#082852]">Indore, Madhya Pradesh</div>
               </div>
             </div>
           </div>

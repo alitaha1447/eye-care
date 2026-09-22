@@ -146,8 +146,8 @@ export default function Footer() {
                 <MapPin size={13} className="shrink-0 text-blue-200 mt-0.5" />
                 <div className="leading-tight">
                   <div className="text-white font-medium">Child Eye Care &amp; Squint Clinic</div>
-                  <div>3rd Floor, Plot No. 12, Road No. 2,</div>
-                  <div>Banjara Hills, Hyderabad – 500034</div>
+                  <div>204, Krishna Tower, near Pipliyahana Square,</div>
+                  <div>Indore, Madhya Pradesh – 452016</div>
                 </div>
               </div>
 
@@ -175,11 +175,11 @@ export default function Footer() {
             <div className="relative w-full max-w-[185px] overflow-hidden rounded-xl border border-white/20 shadow-md">
               <img
                 src="/images/contact/clinic-map.jpg"
-                alt="Clinic Map Location in Banjara Hills"
+                alt="Clinic Map Location in Indore"
                 className="h-20 w-full object-cover"
               />
               <a
-                href="https://maps.google.com/?q=Child+Eye+Care+and+Squint+Clinic+Banjara+Hills+Hyderabad"
+                href="https://www.google.com/maps?ll=22.70521,75.908882&z=15&t=m&hl=en&gl=IN&mapclient=embed&cid=9105442730508839869"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1.5 bg-[#082852] py-1.5 px-2 text-[11px] font-bold text-white transition hover:bg-[#0c3972]"

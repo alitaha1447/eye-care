@@ -43,8 +43,9 @@ export default function Contact() {
                 <div>
                   <div className="text-sm font-bold text-[#082852]">Address</div>
                   <div className="mt-1 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
-                    3rd Floor, Plot No. 12, Road No. 2,<br />
-                    Banjara Hills, Hyderabad - 500034
+                    204, Krishna Tower Building, near Pipliyahana Square,<br />
+                    Above Bank of Baroda, Brajeshwari Extension,<br />
+                    Indore, Madhya Pradesh - 452016
                   </div>
                 </div>
               </div>
@@ -177,7 +178,7 @@ export default function Contact() {
             <div className="relative h-full min-h-[300px] w-full overflow-hidden sm:min-h-[360px]">
               <iframe
                 title="Child Eye Care & Squint Clinic Location"
-                src="https://www.google.com/maps?q=Banjara+Hills+Road+No+2+Hyderabad&output=embed"
+                src="https://www.google.com/maps?ll=22.70521,75.908882&z=15&t=m&hl=en&gl=IN&mapclient=embed&cid=9105442730508839869&output=embed"
                 className="h-full min-h-[300px] w-full border-0 sm:min-h-[360px]"
                 loading="lazy"
                 allowFullScreen
