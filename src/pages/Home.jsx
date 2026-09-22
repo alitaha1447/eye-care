@@ -130,28 +130,43 @@ const galleryThumbs = [
 
 const faqs = [
   {
-    q: 'What is squint (strabismus)?',
-    a: 'Squint is a condition where both eyes do not look in the same direction at the same time. While one eye looks straight ahead, the other turns inward, outward, upward, or downward.',
+    q: 'What is squint?',
+    a: 'A squint, or strabismus, is a condition in which the eyes do not align properly. One eye turns inwards, upwards, downwards, or outwards, while the other one focuses at one spot.',
     iconColor: 'blue',
   },
   {
-    q: 'Can squint be treated without surgery?',
-    a: 'Yes, in several cases squint can be managed effectively with corrective eyeglasses, prism lenses, vision therapy, or eye patch occlusion exercises, especially when diagnosed early.',
+    q: 'How to judge at home if your child has squint?',
+    a: 'In children affected eye might turn in towards the nose or outwards or less commonly upwards or downwards. Infant sometimes look like this from birth, they need an eye evaluation to rule out true or pseudosquint around 3-4 months of age. If the squint is constant, might need early examination.',
+    iconColor: 'green',
+  },
+  {
+    q: 'Why early correction is advised?',
+    a: 'Squint in children less than 7 years old may impair visual development of the affected eye. Unless treated before the age of 7–8 years, this can become permanent. The fixating eye will see clearly, while the deviating eye will have reduced visual acuity permanently and underdeveloped 3D vision.',
     iconColor: 'blue',
   },
   {
-    q: 'Is squint surgery safe for children?',
-    a: 'Yes, squint surgery is a standard, highly refined microsurgical procedure performed under general anesthesia with exceptional safety and precision protocols.',
+    q: 'What are the treatment options?',
+    a: (
+      <div>
+        <p className="mb-1 font-medium text-slate-700">Treatment options:</p>
+        <ul className="list-disc pl-4 space-y-1">
+          <li>Glasses &ndash; some type of squint can be corrected by glasses only, others need surgical correction.</li>
+          <li>Special glasses in some cases &ndash; prismatic glasses.</li>
+          <li>Exercises.</li>
+          <li>Surgery.</li>
+        </ul>
+      </div>
+    ),
     iconColor: 'green',
   },
   {
-    q: 'How long is the recovery after surgery?',
-    a: 'Most children and adults resume their normal routine activities within 3 to 7 days. Mild redness or irritation typically subsides within 2 to 3 weeks.',
-    iconColor: 'green',
+    q: 'Can it be corrected?',
+    a: 'Yes. Treatment for squint is possible but the treatment must begin as early as possible for best chances of improvement.',
+    iconColor: 'blue',
   },
   {
-    q: 'Will my vision improve after surgery?',
-    a: 'Squint surgery properly aligns the eye muscles. When combined with appropriate visual rehabilitation, it promotes binocular single vision, stereopsis (depth perception), and eliminates double vision.',
+    q: 'Is there any age bar to treat squint?',
+    a: 'Squint can also be corrected in adulthood but giving cosmetic results only with no improvement in vision or 3-D perception (if treated timely in adulthood).',
     iconColor: 'green',
   },
 ]
@@ -733,9 +748,9 @@ export default function Home() {
                       />
                     </button>
                     {openFaq === idx && (
-                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600 pl-6">
+                      <div className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600 pl-6">
                         {faq.a}
-                      </p>
+                      </div>
                     )}
                   </div>
                 ))}
