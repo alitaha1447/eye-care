@@ -101,7 +101,7 @@ export default function Header() {
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
             type="button"
             onClick={scrollToForm}
@@ -120,15 +120,24 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          type="button"
-          className="grid h-10 w-10 place-items-center rounded-md border border-slate-200 text-clinic-navy transition-colors hover:bg-slate-50 lg:hidden"
-          onClick={() => setMobileMenuOpen(prev => !prev)}
-          aria-label="Toggle mobile menu"
-        >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile Header Actions: Phone Call + Hamburger Toggle */}
+        <div className="flex items-center gap-2.5 lg:hidden">
+          <a
+            href="tel:+919010888066"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#082852] text-white shadow-xs transition hover:bg-[#0c3972]"
+            aria-label="Call Clinic"
+          >
+            <Phone size={15} />
+          </a>
+          <button
+            type="button"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-clinic-navy transition-colors hover:bg-slate-50"
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}

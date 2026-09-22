@@ -20,6 +20,7 @@ import {
   Smile,
   HeartHandshake,
   ChevronRight,
+  ChevronLeft,
   Play,
   HelpCircle,
   MapPin,
@@ -33,6 +34,7 @@ import {
   Clock,
   FlaskConical,
   ShieldCheck,
+  Globe,
 } from 'lucide-react'
 import ConsultationForm from '../components/ConsultationForm'
 
@@ -77,12 +79,12 @@ const features = [
   {
     title: 'Pediatric & Adult',
     subtitle: 'Squint Specialists',
-    Icon: Clock,
+    Icon: Users,
   },
   {
     title: 'Advanced',
     subtitle: 'Microsurgical Techniques',
-    Icon: FlaskConical,
+    Icon: Microscope,
   },
   {
     title: 'Personalized',
@@ -97,13 +99,18 @@ const features = [
   {
     title: 'Cashless Insurance',
     subtitle: 'Facilities Available',
-    Icon: ShieldCheck,
+    Icon: CreditCard,
+  },
+  {
+    title: 'Child Friendly',
+    subtitle: 'Environment',
+    Icon: Smile,
   },
 ]
 
 const techniques = [
-  { name: 'Microsurgical\nSquint Correction', Icon: Eye },
   { name: 'Adjustable Suture\nTechnique', Icon: Scissors },
+  { name: 'Micro Surgical\nSquint Correction', Icon: Eye },
   { name: 'Pediatric Squint\nManagement', Icon: Baby },
   { name: 'Prism & Orthoptic\nEvaluation', Icon: Glasses },
   { name: 'Binocular Vision\nAssessment', Icon: Smile },
@@ -115,8 +122,8 @@ const consultationSteps = [
   { step: '02', name: 'Detailed Eye\nExamination', Icon: Eye },
   { step: '03', name: 'Diagnosis &\nAssessment', Icon: FileText },
   { step: '04', name: 'Treatment\nPlanning', Icon: ClipboardList },
-  { step: '05', name: 'Treatment /\nSurgery', Icon: Activity },
-  { step: '06', name: 'Follow-up &\nCare', Icon: Stethoscope },
+  { step: '05', name: 'Treatment / Surgery\n(If Needed)', Icon: Activity },
+  { step: '06', name: 'Recovery &\nFollow-up', Icon: Stethoscope },
 ]
 
 const galleryThumbs = [
@@ -126,6 +133,49 @@ const galleryThumbs = [
   { src: '/images/about/doctor-portrait.jpg', alt: 'Consultation Room' },
   { src: '/images/home/clinic-virtual-tour.jpg', alt: 'Examination Room' },
   { src: '/images/gallery/diagnostic-lab.jpg', alt: 'Diagnostic Equipment' },
+]
+
+const beforeAfterSlides = [
+  {
+    id: 1,
+    title: 'Kids Squint Correction',
+    category: 'Kids (Pediatric)',
+    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    before: '/images/home/squint-before.jpg',
+    after: '/images/home/squint-after.jpg',
+  },
+  {
+    id: 2,
+    title: 'Adult Squint Correction',
+    category: 'Adults (Age 18+)',
+    categoryColor: 'bg-emerald-50 text-clinic-green border-emerald-100',
+    before: '/images/home/adult-squint-before.jpg',
+    after: '/images/home/adult-squint-after.jpg',
+  },
+  {
+    id: 3,
+    title: 'Pediatric Eye Alignment',
+    category: 'Kids (Pediatric)',
+    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    before: '/images/home/squint-before-full.jpg',
+    after: '/images/home/squint-after-full.jpg',
+  },
+  {
+    id: 4,
+    title: 'Adult Strabismus Surgery',
+    category: 'Adults (Age 18+)',
+    categoryColor: 'bg-emerald-50 text-clinic-green border-emerald-100',
+    before: '/images/home/adult-squint-before.jpg',
+    after: '/images/home/adult-squint-after.jpg',
+  },
+  {
+    id: 5,
+    title: 'Pediatric Precision Alignment',
+    category: 'Kids (Pediatric)',
+    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    before: '/images/home/squint-before-eyes.jpg',
+    after: '/images/home/squint-after-eyes.jpg',
+  },
 ]
 
 const faqs = [
@@ -174,6 +224,33 @@ const faqs = [
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(null)
   const [videoModalOpen, setVideoModalOpen] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+
+  const minSwipeDistance = 40
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    if (isLeftSwipe) {
+      setCurrentSlide((prev) => (prev + 1) % beforeAfterSlides.length)
+    }
+    if (isRightSwipe) {
+      setCurrentSlide((prev) => (prev - 1 + beforeAfterSlides.length) % beforeAfterSlides.length)
+    }
+  }
 
   function toggleFaq(index) {
     setOpenFaq(prev => (prev === index ? null : index))
@@ -184,7 +261,9 @@ export default function Home() {
       e.preventDefault()
       e.stopPropagation()
     }
-    const target = document.getElementById('consultation-form')
+    const target =
+      document.getElementById('consultation-form-mobile') ||
+      document.getElementById('consultation-form')
     if (target) {
       const headerOffset = 80
       const elementPosition = target.getBoundingClientRect().top
@@ -205,8 +284,8 @@ export default function Home() {
 
   return (
     <main className="w-full overflow-hidden bg-white">
-      {/* Floating Action Buttons pinned to Right Margin */}
-      <div className="fixed right-0 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-2.5 sm:flex">
+      {/* Floating Action Buttons pinned to Right Margin (Desktop only) */}
+      <div className="fixed right-0 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-2.5 lg:flex">
         <a
           href="https://wa.me/919010888066"
           target="_blank"
@@ -237,11 +316,157 @@ export default function Home() {
       </div>
 
       {/* =========================================================================
-          HERO SECTION: 3 Columns (Left: Text/Stats, Middle: Before/After, Right: Form)
+          HERO SECTION: Mobile View (Screen 1) & Desktop View (3 Columns)
           ========================================================================= */}
-      <section className="hero-gradient border-b border-slate-100/80 pt-6 pb-8 sm:pt-8 sm:pb-10 lg:pt-9 lg:pb-12">
+      <section className="hero-gradient border-b border-slate-100/80 pt-5 pb-7 sm:pt-8 sm:pb-10 lg:pt-9 lg:pb-12">
         <div className="container-clinic">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1.25fr_335px] lg:items-stretch xl:gap-7">
+          {/* MOBILE HERO VIEW (< lg): Matches desktop content with Kids & Adults */}
+          <div className="flex flex-col gap-4 lg:hidden">
+            {/* 1. Centered Title & Subtitle matching Desktop */}
+            <div className="text-center px-1">
+              <span className="inline-block text-[11px] sm:text-xs font-black tracking-[0.18em] text-clinic-green uppercase mb-1">
+                REAL RESULTS. REAL CONFIDENCE.
+              </span>
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#082852] leading-tight">
+                Expert Squint Treatment &amp; Management
+                <span className="block text-clinic-green font-extrabold mt-0.5">
+                  (for Adults &amp; Kids)
+                </span>
+              </h1>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600 max-w-md mx-auto">
+                Advanced technology, expert surgeons and compassionate care to help you see better,
+                look better and live better.
+              </p>
+            </div>
+
+            {/* 2. Before / After: Both Kids (Pediatric) & Adults (Age 18+) */}
+            <div className="flex flex-col gap-2 rounded-2xl bg-white p-2.5 sm:p-3 shadow-xs border border-slate-200/80">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 items-center">
+                {/* Column 1: Kids (Pediatric) */}
+                <div className="flex flex-col gap-1.5">
+                  <div className="text-center">
+                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-[#082852] border border-blue-100">
+                      Kids (Pediatric)
+                    </span>
+                  </div>
+
+                  {/* Kids Before Card */}
+                  <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[16/11] border border-slate-200/70 shadow-xs">
+                    <img
+                      src="/images/home/squint-before.jpg"
+                      alt="Child squint eyes before surgery"
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute top-1.5 left-1.5">
+                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                        BEFORE
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Kids After Card */}
+                  <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[16/11] border border-slate-200/70 shadow-xs">
+                    <img
+                      src="/images/home/squint-after.jpg"
+                      alt="Child aligned eyes after squint surgery"
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute top-1.5 left-1.5">
+                      <span className="inline-flex items-center rounded-md bg-clinic-green px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                        AFTER
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Column 2: Adults (Age 18+) */}
+                <div className="flex flex-col gap-1.5">
+                  <div className="text-center">
+                    <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-clinic-green border border-emerald-100">
+                      Adults (Age 18+)
+                    </span>
+                  </div>
+
+                  {/* Adult Before Card */}
+                  <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[16/11] border border-slate-200/70 shadow-xs">
+                    <img
+                      src="/images/home/adult-squint-before.jpg"
+                      alt="Adult squint eyes before surgery"
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute top-1.5 left-1.5">
+                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                        BEFORE
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Adult After Card */}
+                  <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[16/11] border border-slate-200/70 shadow-xs">
+                    <img
+                      src="/images/home/adult-squint-after.jpg"
+                      alt="Adult aligned eyes after squint surgery"
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute top-1.5 left-1.5">
+                      <span className="inline-flex items-center rounded-md bg-clinic-green px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                        AFTER
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-1 text-center text-[10px] text-slate-400 italic">
+                * Results may vary from person to person
+              </p>
+            </div>
+
+            {/* 3. 4-item Stats Row */}
+            <div className="grid grid-cols-4 gap-1 py-1 text-center">
+              {stats.map(({ value, label, Icon }) => (
+                <div key={label} className="flex flex-col items-center">
+                  <div className="grid h-7 w-7 place-items-center rounded-full border border-slate-200 bg-white text-[#082852] shadow-xs mb-1">
+                    <Icon size={13} strokeWidth={2} />
+                  </div>
+                  <div className="text-xs font-black text-[#082852] leading-tight">
+                    {value}
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] font-semibold text-slate-500 leading-tight mt-0.5">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 4. Consultation Form */}
+            <div id="consultation-form-mobile" className="scroll-mt-20">
+              <ConsultationForm variant="white" />
+            </div>
+
+            {/* 5. Action Buttons (Call Now & WhatsApp) */}
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
+              <a
+                href="tel:+919010888066"
+                className="flex items-center justify-center gap-2 rounded-xl bg-clinic-green py-2.5 px-3 text-xs font-bold text-white shadow-sm transition hover:bg-clinic-green-dark"
+              >
+                <Phone size={14} />
+                <span>Call Now</span>
+              </a>
+              <a
+                href="https://wa.me/919010888066"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-clinic-green bg-white py-2.5 px-3 text-xs font-bold text-clinic-green shadow-sm transition hover:bg-emerald-50"
+              >
+                <WhatsappIcon size={15} />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* DESKTOP HERO VIEW (hidden lg:grid) */}
+          <div className="hidden lg:grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1.25fr_335px] lg:items-stretch xl:gap-7">
             {/* Left Column: Heading, text, stats, CTA buttons */}
             <div className="flex flex-col justify-center">
               <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] text-clinic-green uppercase">
@@ -392,17 +617,101 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 2: ABOUT US (EXACT 3-COLUMN LAYOUT MATCHING USER REFERENCE)
-          [ Doctor Card ] [ About Us Text ] [ Features & Inset Stats Card ]
+          SECTION 2: ABOUT US & WHY CHOOSE US
           ========================================================================= */}
-      <section className="container-clinic py-10 lg:py-14">
-        <div className="grid gap-6 lg:grid-cols-[290px_340px_1fr] xl:grid-cols-[320px_360px_1fr] items-center">
+      <section className="container-clinic py-8 lg:py-14">
+        {/* MOBILE VIEW (< lg): Matches Screen 2 exactly */}
+        <div className="flex flex-col gap-6 lg:hidden">
+          {/* About Us Content */}
+          <div>
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+              ABOUT US
+            </span>
+
+            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#082852] leading-tight">
+              Trusted Experts in <br />
+              Squint Treatment
+            </h2>
+
+            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600">
+              At Child Eye Care &amp; Squint Clinic, we are committed to providing world-class squint
+              treatment for children and adults. With advanced technology and expertise, we ensure
+              the best possible outcomes.
+            </p>
+
+            {/* Doctor Card with 15+ badge */}
+            <div className="relative mx-auto mt-4 w-full max-w-[240px]">
+              <div className="relative z-10 overflow-hidden rounded-2xl bg-white aspect-[4/5] shadow-sm border border-slate-100">
+                <img
+                  src="/images/about/doctor-portrait-clean.jpg"
+                  alt="Squint Specialist Doctor"
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-2 -left-2 z-20 rounded-xl bg-[#082852] px-3.5 py-2 text-white shadow-lg border border-white/20">
+                <div className="text-xl font-black leading-none">15+</div>
+                <div className="text-[10px] font-medium text-white/90 leading-tight mt-0.5">
+                  Years of<br />Experience
+                </div>
+              </div>
+            </div>
+
+            {/* 4 Checkmarks */}
+            <div className="mt-6 flex flex-col gap-2">
+              {[
+                'Experienced Squint Specialists',
+                'Advanced Diagnostic & Treatment Technology',
+                'Child Friendly Environment',
+                'Comprehensive Care & Follow-up',
+              ].map((text) => (
+                <div key={text} className="flex items-center gap-2.5">
+                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-clinic-green text-clinic-green">
+                    <Check size={11} strokeWidth={3} />
+                  </div>
+                  <span className="text-xs font-semibold text-slate-700">{text}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center rounded-md bg-[#082852] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#0e3a75] shadow-sm"
+              >
+                Know More About Us
+              </Link>
+            </div>
+          </div>
+
+          {/* Why Choose Us? 2x3 Grid */}
+          <div className="mt-2 pt-6 border-t border-slate-100">
+            <h3 className="text-center text-xl font-black tracking-tight text-[#082852]">
+              Why Choose Us?
+            </h3>
+            <div className="mt-4 grid grid-cols-2 gap-2.5">
+              {features.map(({ title, subtitle, Icon }) => (
+                <div
+                  key={subtitle}
+                  className="flex flex-col items-center text-center p-3.5 rounded-xl border border-slate-100 bg-white shadow-xs"
+                >
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-blue-50 text-[#155799] mb-2">
+                    <Icon size={18} strokeWidth={2} />
+                  </div>
+                  <div className="text-xs font-bold text-[#082852] leading-tight">{title}</div>
+                  <div className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">
+                    {subtitle}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (lg:grid): Preserved exactly */}
+        <div className="hidden lg:grid gap-6 lg:grid-cols-[290px_340px_1fr] xl:grid-cols-[320px_360px_1fr] items-center">
           {/* Column 1: Doctor Portrait with Green Offset Background Card */}
           <div className="relative mx-auto w-full max-w-[240px] sm:max-w-[260px]">
-            {/* Green accent background shape */}
             <div className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[32px] bg-[#268054] -z-0" />
-
-            {/* Doctor image container */}
             <div className="relative z-10 overflow-hidden rounded-[28px] bg-white aspect-[4/5] shadow-sm">
               <img
                 src="/images/about/doctor-portrait-clean.jpg"
@@ -410,8 +719,6 @@ export default function Home() {
                 className="h-full w-full object-cover object-top"
               />
             </div>
-
-            {/* Overlapping Badge at bottom-left */}
             <div className="absolute -bottom-2 -left-3 z-20 rounded-xl bg-[#082852] px-4 py-2.5 text-white shadow-xl border border-white/20">
               <div className="text-2xl sm:text-3xl font-black leading-none">15+</div>
               <div className="text-xs font-medium text-white/90 leading-tight mt-1">
@@ -456,7 +763,7 @@ export default function Home() {
 
             <div className="mt-5">
               <Link
-                // to="/about"
+                to="/about"
                 className="inline-flex items-center justify-center rounded-full bg-[#082852] px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-[#0e3a75] shadow-sm active:scale-[0.99]"
               >
                 Know More About Us
@@ -464,10 +771,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Column 3: Wide Light-Blue Panel with Top 5 Features and Inset White 4 Stats */}
+          {/* Column 3: Wide Light-Blue Panel with Top Features and Inset White 4 Stats */}
           <div className="flex flex-col gap-4 rounded-[28px] bg-[#F5F8FC] p-5 sm:p-6 border border-slate-200/60 shadow-xs">
-            {/* Top 5 Feature Badges in a single horizontal row */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 items-center">
               {features.map(({ title, subtitle, Icon }) => (
                 <div key={subtitle} className="flex items-center gap-2">
                   <div className="text-[#155799] shrink-0">
@@ -524,9 +830,73 @@ export default function Home() {
       {/* =========================================================================
           SECTION 3: DUAL JOURNEY (Advanced Techniques + Consultation Journey)
           ========================================================================= */}
-      <section className="border-t border-slate-100 bg-white py-10 lg:py-14">
+      <section className="border-t border-slate-100 bg-white py-8 lg:py-14">
         <div className="container-clinic">
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto_1fr] items-center">
+          {/* MOBILE VIEW (< lg): Matches Screen 3 exactly */}
+          <div className="flex flex-col gap-8 lg:hidden">
+            {/* Our Advanced Techniques (Vertical List) */}
+            <div>
+              <div className="text-center mb-4">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+                  OUR ADVANCED TECHNIQUES
+                </span>
+                <h2 className="mt-1.5 text-xl sm:text-2xl font-black tracking-tight text-[#082852]">
+                  Advanced Techniques<br />for Better Results
+                </h2>
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                {techniques.map(({ name, Icon }) => (
+                  <div
+                    key={name}
+                    className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-3 shadow-xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-slate-200 bg-slate-50 text-[#155799]">
+                        <Icon size={18} strokeWidth={1.8} />
+                      </div>
+                      <span className="text-xs font-bold text-slate-800">
+                        {name.replace('\n', ' ')}
+                      </span>
+                    </div>
+                    <div className="grid h-6 w-6 place-items-center rounded-full border border-slate-200 text-slate-400">
+                      <ChevronRight size={13} strokeWidth={2} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Our Consultation Journey (Navy Vertical Timeline) */}
+            <div className="-mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl bg-[#082852] p-6 text-white shadow-card">
+              <div className="text-center mb-6">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-emerald-950/80 border border-clinic-green/30 px-3 py-1 rounded-full uppercase">
+                  OUR CONSULTATION JOURNEY
+                </span>
+                <h2 className="mt-1.5 text-xl font-black tracking-tight text-white">
+                  Your Journey to<br />Better Vision
+                </h2>
+              </div>
+
+              <div className="relative flex flex-col gap-5 pl-2">
+                {/* Vertical connecting line */}
+                <div className="absolute left-[17px] top-4 bottom-4 w-px border-l-2 border-dashed border-white/25" />
+                {consultationSteps.map(({ step, name }) => (
+                  <div key={step} className="relative z-10 flex items-center gap-4">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white font-black text-xs text-[#082852] shadow-sm">
+                      {step}
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-white leading-tight">
+                      {name.replace('\n', ' ')}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* DESKTOP VIEW (lg:grid): Preserved exactly */}
+          <div className="hidden lg:grid gap-6 lg:grid-cols-[1fr_auto_1fr] items-center">
             {/* Left: Our Advanced Techniques */}
             <div>
               <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -603,10 +973,212 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: STORIES, VIRTUAL TOUR & PHOTO GALLERY (3 COLUMNS)
+          SECTION 4: STORIES, VIRTUAL TOUR & PHOTO GALLERY
           ========================================================================= */}
-      <section className="container-clinic pt-10 pb-6 lg:pt-14 lg:pb-7">
-        <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+      <section className="container-clinic pt-8 pb-6 lg:pt-14 lg:pb-7">
+        {/* MOBILE VIEW (< lg): Matches Screen 4 exactly */}
+        <div className="flex flex-col gap-7 lg:hidden">
+          {/* Card 1: Before & After Results Carousel (Working Carousel with Kids & Adults) */}
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+              BEFORE &amp; AFTER RESULTS
+            </span>
+            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+              Real Results. Real Stories.
+            </h3>
+            <div className="w-8 h-0.5 bg-clinic-green mx-auto mt-2 rounded-full" />
+
+            {/* Current Slide Category Tag */}
+            <div className="mt-2.5">
+              <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${beforeAfterSlides[currentSlide].categoryColor}`}>
+                {beforeAfterSlides[currentSlide].category}
+              </span>
+            </div>
+
+            {/* Carousel Container with Touch & Arrow Support */}
+            <div
+              className="relative mt-3 w-full max-w-sm select-none"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
+              {/* Previous Arrow */}
+              <button
+                type="button"
+                onClick={() => setCurrentSlide((prev) => (prev - 1 + beforeAfterSlides.length) % beforeAfterSlides.length)}
+                className="absolute -left-2 sm:-left-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-[#082852] hover:bg-white hover:text-clinic-green transition cursor-pointer"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={16} strokeWidth={2.5} />
+              </button>
+
+              {/* Next Arrow */}
+              <button
+                type="button"
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % beforeAfterSlides.length)}
+                className="absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-[#082852] hover:bg-white hover:text-clinic-green transition cursor-pointer"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={16} strokeWidth={2.5} />
+              </button>
+
+              {/* Side-by-Side Images for Current Slide */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                {/* Before Image */}
+                <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] border border-slate-200/70 shadow-xs">
+                  <img
+                    key={`before-${currentSlide}`}
+                    src={beforeAfterSlides[currentSlide].before}
+                    alt={`${beforeAfterSlides[currentSlide].title} Before`}
+                    className="h-full w-full object-cover transition-opacity duration-300"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span className="inline-flex items-center rounded-md bg-[#0B4F9C] px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                      Before
+                    </span>
+                  </div>
+                </div>
+
+                {/* After Image */}
+                <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3] border border-slate-200/70 shadow-xs">
+                  <img
+                    key={`after-${currentSlide}`}
+                    src={beforeAfterSlides[currentSlide].after}
+                    alt={`${beforeAfterSlides[currentSlide].title} After`}
+                    className="h-full w-full object-cover transition-opacity duration-300"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span className="inline-flex items-center rounded-md bg-clinic-green px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                      After
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive 5 Pagination Dots */}
+            <div className="mt-3.5 flex items-center justify-center gap-1.5">
+              {beforeAfterSlides.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  type="button"
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`transition-all duration-300 cursor-pointer ${
+                    currentSlide === idx
+                      ? 'h-1.5 w-5 rounded-full bg-[#082852]'
+                      : 'h-1.5 w-1.5 rounded-full bg-slate-300 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+            <p className="mt-1 text-center text-[10px] text-slate-400 italic">
+              * Swipe or tap dots to view more cases (Kids &amp; Adults)
+            </p>
+          </div>
+
+          {/* Card 2: Patient Success Stories */}
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+              PATIENT SUCCESS STORIES
+            </span>
+            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+              Hear From Our Patients
+            </h3>
+
+            <div
+              onClick={() => setVideoModalOpen(true)}
+              className="relative mt-3.5 w-full max-w-sm overflow-hidden rounded-2xl bg-slate-100 aspect-[16/10] cursor-pointer group shadow-sm"
+            >
+              <img
+                src="/images/gallery/pediatric-care.jpg"
+                alt="Patient Success Story"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                  <Play size={20} fill="currentColor" className="ml-0.5" />
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setVideoModalOpen(true)}
+              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-red-600 hover:text-red-700 transition"
+            >
+              <YoutubeIcon size={15} />
+              <span>Watch more on YouTube</span>
+            </button>
+          </div>
+
+          {/* Card 3: Virtual Clinic Tour */}
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+              VIRTUAL CLINIC TOUR
+            </span>
+            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+              Take a 360° Tour<br />of Our Clinic
+            </h3>
+
+            <div
+              onClick={() => setVideoModalOpen(true)}
+              className="relative mt-3.5 w-full max-w-sm overflow-hidden rounded-2xl bg-slate-100 aspect-[16/10] cursor-pointer group shadow-sm"
+            >
+              <img
+                src="/images/home/clinic-virtual-tour.jpg"
+                alt="Virtual Clinic Tour"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                  <Play size={20} fill="currentColor" className="ml-0.5" />
+                </div>
+              </div>
+            </div>
+
+            <Link
+              to="/gallery"
+              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-[#082852] hover:text-clinic-green transition"
+            >
+              <Globe size={15} />
+              <span>Explore Our Clinic</span>
+            </Link>
+          </div>
+
+          {/* Card 4: Photo Gallery */}
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+              PHOTO GALLERY
+            </span>
+            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+              Inside Our Clinic
+            </h3>
+
+            <div className="mt-3.5 grid grid-cols-3 gap-2 w-full max-w-sm">
+              {galleryThumbs.map(({ src, alt }, idx) => (
+                <div key={idx} className="overflow-hidden rounded-xl bg-slate-100 aspect-square shadow-xs">
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <Link
+              to="/gallery"
+              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-[#082852] hover:text-clinic-green transition"
+            >
+              <Eye size={15} />
+              <span>View Full Gallery</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (hidden lg:grid): Exactly preserved */}
+        <div className="hidden lg:grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {/* Card 1: Patient Success Stories with Playable Video */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-md">
             <div>
@@ -668,7 +1240,7 @@ export default function Home() {
             </div>
 
             <Link
-              // to="/gallery"
+              to="/gallery"
               className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[#082852] hover:text-clinic-green transition"
             >
               <ExternalLink size={14} />
@@ -711,12 +1283,15 @@ export default function Home() {
       {/* =========================================================================
           SECTION 5: FAQ & BOOK APPOINTMENT CTA (2 COLUMNS)
           ========================================================================= */}
-      <section className="container-clinic pt-2 pb-12 sm:pb-16">
-        <div className="grid gap-5 sm:gap-6 grid-cols-1 lg:grid-cols-2 items-stretch">
+      <section className="container-clinic pt-2 pb-10 sm:pb-16">
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 items-stretch">
           {/* Card: Frequently Asked Questions */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-sm transition hover:shadow-md">
             <div>
-              <div className="border-b border-slate-100 pb-3">
+              <div className="border-b border-slate-100 pb-3 text-center sm:text-left">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase mb-1.5 sm:hidden">
+                  FREQUENTLY ASKED QUESTIONS
+                </span>
                 <h3 className="text-base sm:text-lg font-black text-[#082852] uppercase tracking-wide">
                   FREQUENTLY ASKED QUESTIONS
                 </h3>
@@ -736,15 +1311,13 @@ export default function Home() {
                       <div className="flex items-center gap-2.5">
                         <HelpCircle
                           size={15}
-                          className={`shrink-0 ${faq.iconColor === 'green' ? 'text-clinic-green' : 'text-[#0B4F9C]'
-                            }`}
+                          className={`shrink-0 ${faq.iconColor === 'green' ? 'text-clinic-green' : 'text-[#0B4F9C]'}`}
                         />
                         <span className="leading-snug">{faq.q}</span>
                       </div>
                       <ChevronDown
                         size={15}
-                        className={`shrink-0 text-slate-400 transition-transform duration-200 ${openFaq === idx ? 'rotate-180 text-clinic-green' : ''
-                          }`}
+                        className={`shrink-0 text-slate-400 transition-transform duration-200 ${openFaq === idx ? 'rotate-180 text-clinic-green' : ''}`}
                       />
                     </button>
                     {openFaq === idx && (
@@ -759,8 +1332,8 @@ export default function Home() {
 
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center">
               <Link
-                // to="/faq"
-                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[#082852] hover:text-clinic-green transition"
+                to="/faq"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#082852] lg:bg-transparent py-2.5 lg:py-0 px-4 text-xs sm:text-sm font-bold text-white lg:text-[#082852] hover:text-clinic-green transition"
               >
                 <HelpCircle size={14} />
                 <span>View All FAQs</span>
@@ -769,49 +1342,48 @@ export default function Home() {
           </div>
 
           {/* Card: "Don't Ignore Misaligned Eyes" & Book Appointment CTA */}
-          <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-[#0284c7] via-[#0369a1] to-[#075985] p-5 sm:p-7 text-white shadow-card">
-            {/* Subtle light effect in background */}
+          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl bg-gradient-to-br from-[#0c59a3] via-[#0b4f9c] to-[#073a75] p-5 sm:p-7 text-white shadow-card">
             <div className="pointer-events-none absolute -right-12 -bottom-12 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-[1.15fr_0.85fr] gap-5 sm:gap-6 items-center h-full">
+            <div className="grid grid-cols-[1.25fr_1fr] sm:grid-cols-[1.15fr_0.85fr] gap-3 sm:gap-6 items-center">
               {/* Left side text and buttons */}
-              <div className="flex flex-col justify-center z-10">
-                <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-sky-200">
+              <div className="flex flex-col justify-center z-10 text-left">
+                <span className="hidden sm:inline-block text-xs font-extrabold uppercase tracking-widest text-sky-200">
                   Early Care Matters
                 </span>
-                <h3 className="mt-1 text-xl sm:text-2xl font-black leading-tight text-white">
-                  Don&apos;t Ignore Misaligned Eyes
+                <h3 className="text-lg sm:text-2xl font-black leading-tight text-white">
+                  Don&apos;t Ignore<br className="sm:hidden" /> Misaligned Eyes
                 </h3>
-                <p className="mt-2 text-sm sm:text-base text-blue-50/95 leading-relaxed">
-                  Early diagnosis and specialized treatment can make a lifetime of difference in your child's vision and self-confidence.
+                <p className="mt-1.5 text-[11px] sm:text-sm md:text-base text-blue-50/90 leading-relaxed">
+                  Early diagnosis and treatment can make a lifetime of difference.
                 </p>
 
-                <div className="mt-5 flex flex-wrap gap-2.5">
+                <div className="mt-3.5 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-2.5 sm:flex-wrap">
                   <button
                     type="button"
                     onClick={scrollToForm}
-                    className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-xs sm:text-sm font-bold text-[#082852] shadow-md hover:bg-slate-100 transition active:scale-[0.98] cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold text-clinic-green shadow-xs hover:bg-slate-100 transition active:scale-[0.98] cursor-pointer whitespace-nowrap"
                   >
-                    <CalendarDays size={14} />
+                    <CalendarDays size={13} className="text-clinic-green shrink-0" />
                     <span>Book Appointment</span>
                   </button>
 
                   <a
                     href="tel:+919010888066"
-                    className="inline-flex items-center gap-2 rounded-lg border border-white/70 bg-white/10 px-4 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-white/20 transition active:scale-[0.98]"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-white/70 bg-white/10 px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold text-white hover:bg-white/20 transition active:scale-[0.98] whitespace-nowrap"
                   >
-                    <Phone size={14} />
+                    <Phone size={13} className="shrink-0" />
                     <span>Call Now</span>
                   </a>
                 </div>
               </div>
 
               {/* Right side: Smiling girl wearing trial frames */}
-              <div className="relative flex items-center justify-center sm:justify-end">
+              <div className="relative flex items-center justify-center sm:justify-end h-full">
                 <img
                   src="/images/home/girl-trial-frames.jpg"
                   alt="Child with optometry trial frames"
-                  className="h-44 sm:h-52 md:h-56 w-auto max-w-full object-cover rounded-xl shadow-lg border-2 border-white/20"
+                  className="h-36 sm:h-52 md:h-56 w-full object-cover object-center rounded-xl shadow-md border-2 border-white/20"
                 />
               </div>
             </div>
@@ -850,13 +1422,6 @@ export default function Home() {
 
             {/* Embedded Responsive YouTube Video */}
             <div className="aspect-video w-full">
-              {/* <iframe
-                className="h-full w-full"
-                src="https://www.youtube.com/embed/S9Vz_e3fPqY?autoplay=1"
-                title="Child Eye Care & Squint Clinic Patient Success Story"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              /> */}
               <iframe
                 className="h-full w-full"
                 src="https://www.youtube.com/embed/VN_5jz1Za3U?autoplay=1"
@@ -870,6 +1435,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
     </main>
   )
 }

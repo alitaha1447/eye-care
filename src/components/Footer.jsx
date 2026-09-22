@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Youtube, MapPin, Phone, Mail, Search } from 'lucide-react'
+import { Facebook, Instagram, Youtube, MapPin, Phone, Mail, Search, ArrowUp } from 'lucide-react'
 
 // WhatsApp SVG Icon
 function WhatsappIcon({ size = 13, className = '' }) {
@@ -19,13 +19,13 @@ function WhatsappIcon({ size = 13, className = '' }) {
 export default function Footer() {
   return (
     <footer className="bg-[#061C39] text-white">
-      <div className="container-clinic py-9 lg:py-11">
-        <div className="grid gap-6 sm:gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1.4fr_1.35fr_1.1fr_1fr] items-start">
+      <div className="container-clinic py-7 lg:py-11">
+        <div className="grid gap-6 sm:gap-7 grid-cols-1 lg:grid-cols-[1.3fr_1.4fr_1.35fr_1.1fr_1fr] items-start">
           {/* Column 1: Brand & Description & Socials */}
-          <div className="lg:pr-4">
-            <Link to="/" className="inline-flex items-center gap-2.5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center">
-                <svg viewBox="0 0 100 70" className="h-8 w-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:pr-4">
+            <Link to="/" className="flex flex-col items-center gap-1.5 lg:flex-row lg:gap-2.5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+                <svg viewBox="0 0 100 70" className="h-9 w-11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M50 8C27 8 9 35 9 35C9 35 27 62 50 62C73 62 91 35 91 35C91 35 73 8 50 8Z"
                     stroke="#ffffff"
@@ -37,22 +37,22 @@ export default function Footer() {
                   <circle cx="50" cy="35" r="8" fill="#ffffff" />
                 </svg>
               </div>
-              <div className="leading-tight">
-                <div className="text-[16px] font-extrabold tracking-tight text-white">
+              <div className="leading-tight text-center lg:text-left">
+                <div className="text-[17px] font-extrabold tracking-tight text-white">
                   Child Eye Care
                 </div>
-                <div className="text-[12px] font-bold text-clinic-green">
+                <div className="text-[13px] font-bold text-clinic-green">
                   &amp; Squint Clinic
                 </div>
               </div>
             </Link>
 
-            <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-blue-100/80 max-w-[240px]">
+            <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-blue-100/80 max-w-[280px]">
               Specialized care for squint (strabismus) in children and adults.
             </p>
 
             {/* Social Icons with blue circular backgrounds matching reference */}
-            <div className="mt-4 flex items-center gap-2">
+            <div className="mt-4 flex items-center justify-center lg:justify-start gap-2.5">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -92,8 +92,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: QUICK LINKS (2 subcolumns) */}
-          <div className="lg:border-l lg:border-white/10 lg:pl-6">
+          {/* Column 2: QUICK LINKS (hidden on mobile, visible on desktop) */}
+          <div className="hidden lg:block lg:border-l lg:border-white/10 lg:pl-6">
             <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               QUICK LINKS
             </h3>
@@ -136,8 +136,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: CONTACT US */}
-          <div className="lg:border-l lg:border-white/10 lg:pl-6">
+          {/* Column 3: CONTACT US (hidden on mobile, visible on desktop) */}
+          <div className="hidden lg:block lg:border-l lg:border-white/10 lg:pl-6">
             <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               CONTACT US
             </h3>
@@ -167,8 +167,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: OUR LOCATION (Map preview with View on Google Maps pill) */}
-          <div className="lg:border-l lg:border-white/10 lg:pl-6">
+          {/* Column 4: OUR LOCATION (hidden on mobile, visible on desktop) */}
+          <div className="hidden lg:block lg:border-l lg:border-white/10 lg:pl-6">
             <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               OUR LOCATION
             </h3>
@@ -190,8 +190,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 5: WORKING HOURS */}
-          <div className="lg:border-l lg:border-white/10 lg:pl-6">
+          {/* Column 5: WORKING HOURS (hidden on mobile, visible on desktop) */}
+          <div className="hidden lg:block lg:border-l lg:border-white/10 lg:pl-6">
             <h3 className="text-xs font-extrabold uppercase tracking-wider text-white mb-2.5">
               WORKING HOURS
             </h3>
@@ -207,16 +207,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 bg-[#04152D] py-3">
-        <div className="container-clinic flex flex-col items-center justify-between gap-1.5 text-xs text-blue-100/70 sm:flex-row">
+      <div className="border-t border-white/10 bg-[#04152D] py-4">
+        <div className="container-clinic flex items-center justify-between text-xs text-blue-100/70">
           <div>
-            &copy; 2025 Child Eye Care &amp; Squint Clinic. All Rights Reserved.
+            &copy; 2025 Child Eye Care &amp; Squint Clinic.<br className="sm:hidden" /> All Rights Reserved.
           </div>
-          <div className="flex items-center gap-1">
-            <span>Designed with</span>
-            <span className="text-white text-xs">❤</span>
-            <span>for better vision</span>
-          </div>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex flex-col items-center gap-1 text-slate-300 hover:text-white transition cursor-pointer"
+            aria-label="Back to top"
+          >
+            <div className="grid h-9 w-9 place-items-center rounded-full bg-clinic-green text-white shadow-md hover:bg-clinic-green-dark transition">
+              <ArrowUp size={16} strokeWidth={2.5} />
+            </div>
+            <span className="text-[10px] font-semibold text-slate-300">Back to Top</span>
+          </button>
         </div>
       </div>
     </footer>

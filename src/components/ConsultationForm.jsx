@@ -61,18 +61,18 @@ export default function ConsultationForm({ className = '', variant = 'default' }
   // White Card Variant matching the reference screenshot exactly
   if (variant === 'white') {
     return (
-      <div className={`flex flex-col justify-between rounded-2xl bg-white p-6 text-slate-800 shadow-card border border-slate-100 ${className}`}>
+      <div className={`flex flex-col justify-between rounded-2xl bg-[#082852] md:bg-white p-5 sm:p-6 text-white md:text-slate-800 shadow-card border border-white/10 md:border-slate-100 ${className}`}>
         <div>
-          <h3 className="text-center text-lg sm:text-[21px] font-extrabold tracking-tight text-[#082852]">
+          <h3 className="text-center text-lg sm:text-[21px] font-extrabold tracking-tight text-white md:text-[#082852]">
             Book Your Consultation
           </h3>
-          <p className="mt-0.5 text-center text-xs sm:text-sm text-slate-500 font-medium">
+          <p className="mt-0.5 text-center text-xs sm:text-sm text-blue-100/80 md:text-slate-500 font-medium">
             Take the first step towards better vision
           </p>
 
           <form className="mt-4 flex flex-col gap-3" onSubmit={handleSubmit}>
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
+              <label className="hidden md:block text-xs font-bold text-slate-700 mb-1">
                 Full Name
               </label>
               <input
@@ -80,14 +80,14 @@ export default function ConsultationForm({ className = '', variant = 'default' }
                 name="name"
                 value={formData.name}
                 onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                placeholder="Enter your full name"
+                placeholder="Full Name"
                 required
                 className="w-full rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-clinic-green focus:outline-none focus:ring-1 focus:ring-clinic-green shadow-xs transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
+              <label className="hidden md:block text-xs font-bold text-slate-700 mb-1">
                 Mobile Number
               </label>
               <input
@@ -95,14 +95,14 @@ export default function ConsultationForm({ className = '', variant = 'default' }
                 name="phone"
                 value={formData.phone}
                 onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                placeholder="Enter your mobile number"
+                placeholder="Mobile Number"
                 required
                 className="w-full rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-clinic-green focus:outline-none focus:ring-1 focus:ring-clinic-green shadow-xs transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
+              <label className="hidden md:block text-xs font-bold text-slate-700 mb-1">
                 Patient Type
               </label>
               <select
@@ -112,14 +112,14 @@ export default function ConsultationForm({ className = '', variant = 'default' }
                 required
                 className="w-full rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-clinic-green focus:outline-none focus:ring-1 focus:ring-clinic-green shadow-xs transition cursor-pointer"
               >
-                <option value="" disabled>Select (Adults / Kids)</option>
+                <option value="" disabled>Age / Patient Type (Adults / Kids)</option>
                 <option value="Adults">Adults</option>
                 <option value="Kids">Kids</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">
+              <label className="hidden md:block text-xs font-bold text-slate-700 mb-1">
                 Treatment
               </label>
               <select
@@ -137,20 +137,20 @@ export default function ConsultationForm({ className = '', variant = 'default' }
               </select>
             </div>
 
-            {error && <p className="text-xs text-red-500">{error}</p>}
+            {error && <p className="text-xs text-red-300 md:text-red-500">{error}</p>}
 
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 w-full rounded-lg bg-[#268054] py-2.5 text-sm font-bold text-white transition-all duration-150 hover:bg-[#1C6944] active:scale-[0.99] shadow-sm disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-2 w-full rounded-lg bg-[#268054] py-2.5 text-sm font-bold text-white transition-all duration-150 hover:bg-[#1C6944] active:scale-[0.99] shadow-sm disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
             >
               {loading ? 'Submitting...' : 'Submit'}
             </button>
           </form>
         </div>
 
-        <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-medium text-slate-500">
-          <Lock size={12} className="text-clinic-green" />
+        <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-medium text-blue-200/80 md:text-slate-500">
+          <Lock size={12} className="text-clinic-green md:text-clinic-green" />
           <span>Your information is safe with us.</span>
         </div>
       </div>
