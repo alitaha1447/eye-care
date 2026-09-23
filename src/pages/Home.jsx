@@ -708,9 +708,9 @@ export default function Home() {
         </div>
 
         {/* DESKTOP VIEW (hidden lg:flex flex-col) */}
-        <div className="container-clinic max-w-6xl xl:max-w-7xl mx-auto hidden lg:flex flex-col gap-10 xl:gap-12">
+        <div className="container-clinic hidden lg:flex flex-col gap-8 xl:gap-10">
           {/* Row 1: 40% - 60% Ratio for Image and Content */}
-          <div className="w-full max-w-6xl xl:max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 lg:gap-10 xl:gap-12 items-center">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 lg:gap-10 xl:gap-12 items-center">
             {/* Column 1 (40%): Doctor Portrait with Green Offset Background Card */}
             <div className="relative flex justify-end">
               <div className="relative w-full max-w-[300px] xl:max-w-[340px]">
@@ -752,53 +752,54 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Row 2: The 3rd content (Features and Stats Panel) centered in the row */}
-          <div className="w-full max-w-6xl xl:max-w-7xl mx-auto flex flex-col gap-4 rounded-[28px] bg-[#F5F8FC] p-6 sm:p-8 border border-slate-200/60 shadow-xs">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 items-center">
+          {/* Row 2: Features and Stats Panel in 1 single row (6 cols) */}
+          <div className="w-full flex flex-col gap-4 sm:gap-5 rounded-[24px] bg-[#F5F8FC] py-5 px-5 sm:py-6 sm:px-7 border border-slate-200/60 shadow-xs">
+            {/* 6 Features in 1 Row on Desktop */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 xl:gap-5 items-center">
               {features.map(({ title, subtitle, Icon }) => (
-                <div key={subtitle} className="flex items-center gap-2.5">
+                <div key={subtitle} className="flex items-center gap-2.5 min-w-0">
                   <div className="text-clinic-navy shrink-0">
-                    <Icon size={20} strokeWidth={1.75} />
+                    <Icon size={24} strokeWidth={1.8} />
                   </div>
-                  <div className="leading-tight">
-                    <div className="text-xs sm:text-[13px] font-bold text-slate-800">{title}</div>
-                    <div className="text-[11px] font-medium text-slate-500 mt-0.5">{subtitle}</div>
+                  <div className="leading-snug min-w-0">
+                    <div className="text-xs xl:text-[13px] font-bold text-slate-800 leading-tight">{title}</div>
+                    <div className="text-[11px] xl:text-xs font-semibold text-slate-500 mt-0.5 leading-tight">{subtitle}</div>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Bottom Inset White 4-column Stats Box */}
-            <div className="rounded-2xl border border-slate-100 bg-white py-5 px-4 shadow-sm">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 divide-slate-100 sm:divide-x text-center">
+            <div className="rounded-2xl border border-slate-100 bg-white py-4 sm:py-5 px-4 sm:px-6 shadow-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 divide-slate-100 sm:divide-x text-center">
                 <div className="flex flex-col items-center">
                   <Users size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
-                  <span className="text-2xl xl:text-3xl font-black text-clinic-green">5000+</span>
-                  <span className="text-xs font-semibold text-slate-500 mt-0.5">
+                  <span className="text-2xl sm:text-3xl font-black text-clinic-green leading-none">5000+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-500 mt-1">
                     Happy Patients
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
                   <Sparkles size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
-                  <span className="text-2xl xl:text-3xl font-black text-clinic-green">2000+</span>
-                  <span className="text-xs font-semibold text-slate-500 mt-0.5">
+                  <span className="text-2xl sm:text-3xl font-black text-clinic-green leading-none">2000+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-500 mt-1">
                     Successful Surgeries
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
                   <Award size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
-                  <span className="text-2xl xl:text-3xl font-black text-clinic-green">15+</span>
-                  <span className="text-xs font-semibold text-slate-500 mt-0.5">
+                  <span className="text-2xl sm:text-3xl font-black text-clinic-green leading-none">15+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-500 mt-1">
                     Years Experience
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
                   <ThumbsUp size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
-                  <span className="text-2xl xl:text-3xl font-black text-clinic-green">95%</span>
-                  <span className="text-xs font-semibold text-slate-500 mt-0.5">
+                  <span className="text-2xl sm:text-3xl font-black text-clinic-green leading-none">95%</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-500 mt-1">
                     Patient Satisfaction
                   </span>
                 </div>
