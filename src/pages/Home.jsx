@@ -1285,7 +1285,7 @@ export default function Home() {
           SECTION 5: FAQ & BOOK APPOINTMENT CTA (2 COLUMNS)
           ========================================================================= */}
       <section className="container-clinic pt-2 pb-10 sm:pb-16">
-        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 items-stretch">
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 items-start">
           {/* Card: Frequently Asked Questions */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-sm transition hover:shadow-md">
             <div>
@@ -1343,19 +1343,25 @@ export default function Home() {
           </div>
 
           {/* Card: "Don't Ignore Misaligned Eyes" & Book Appointment CTA */}
-          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl bg-gradient-to-br from-[#0c59a3] via-[#0b4f9c] to-[#073a75] p-5 sm:p-7 text-white shadow-card">
+          <div
+            style={{
+              background: 'linear-gradient(108deg, #085694 0%, #0c6ea6 32%, #1181a3 65%, #1ca4b7 100%)'
+            }}
+            className="relative overflow-hidden -mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl p-5 sm:p-7 text-white shadow-card self-start h-auto"
+          >
             <div className="pointer-events-none absolute -right-12 -bottom-12 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
+            <div className="pointer-events-none absolute left-1/3 top-0 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl" />
 
             <div className="grid grid-cols-[1.25fr_1fr] sm:grid-cols-[1.15fr_0.85fr] gap-3 sm:gap-6 items-center">
               {/* Left side text and buttons */}
               <div className="flex flex-col justify-center z-10 text-left">
-                <span className="hidden sm:inline-block text-xs font-extrabold uppercase tracking-widest text-sky-200">
+                <span className="hidden sm:inline-block text-xs font-extrabold uppercase tracking-widest text-sky-100/90">
                   Early Care Matters
                 </span>
                 <h3 className="text-lg sm:text-2xl font-black leading-tight text-white">
                   Don&apos;t Ignore<br className="sm:hidden" /> Misaligned Eyes
                 </h3>
-                <p className="mt-1.5 text-[11px] sm:text-sm md:text-base text-blue-50/90 leading-relaxed">
+                <p className="mt-1.5 text-[11px] sm:text-sm md:text-base text-blue-50/95 leading-relaxed">
                   Early diagnosis and treatment can make a lifetime of difference.
                 </p>
 
@@ -1363,9 +1369,9 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={scrollToForm}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold text-clinic-green shadow-xs hover:bg-slate-100 transition active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold text-[#0b5d9b] shadow-xs hover:bg-slate-50 transition active:scale-[0.98] cursor-pointer whitespace-nowrap"
                   >
-                    <CalendarDays size={13} className="text-clinic-green shrink-0" />
+                    <CalendarDays size={13} className="text-[#0b5d9b] shrink-0" />
                     <span>Book Appointment</span>
                   </button>
 
@@ -1380,11 +1386,11 @@ export default function Home() {
               </div>
 
               {/* Right side: Smiling girl wearing trial frames */}
-              <div className="relative flex items-center justify-center sm:justify-end h-full">
+              <div className="relative flex items-center justify-center sm:justify-end">
                 <img
                   src="/images/home/girl-trial-frames.jpg"
                   alt="Child with optometry trial frames"
-                  className="h-36 sm:h-52 md:h-56 w-full object-cover object-center rounded-xl shadow-md border-2 border-white/20"
+                  className="h-36 sm:h-48 md:h-52 w-full object-cover object-center rounded-xl shadow-md border-2 border-white/20"
                 />
               </div>
             </div>
