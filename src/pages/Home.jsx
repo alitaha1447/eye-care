@@ -628,15 +628,13 @@ export default function Home() {
               ABOUT US
             </span>
 
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-clinic-navy leading-tight">
+            {/* <h2 className="mt-2 text-2xl font-black tracking-tight text-clinic-navy leading-tight">
               Trusted Experts in <br />
               Squint Treatment
-            </h2>
+            </h2> */}
 
             <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600">
-              At Child Eye Care &amp; Squint Clinic, we are committed to providing world-class squint
-              treatment for children and adults. With advanced technology and expertise, we ensure
-              the best possible outcomes.
+              Child Eye Care & Squint Clinic, Indore is a specialized eye care centre dedicated to comprehensive pediatric eye care and squint management for children and adults. Led by Dr. Rishika Mutha, Pediatric Ophthalmologist & Adult Squint Surgeon, the clinic provides evaluation and treatment for conditions such as squint (strabismus), pediatric squint, double vision, nystagmus, lazy eye (amblyopia), myopia, and other childhood eye problems. We focus on accurate diagnosis, personalized treatment planning, and clear counselling to help every patient understand their condition and available treatment options. Our aim is to provide compassionate, advanced, and patient-focused eye care for Kids and Adults in a comfortable environment.
             </p>
 
             {/* Doctor Card with 15+ badge */}
@@ -657,7 +655,7 @@ export default function Home() {
             </div>
 
             {/* 4 Checkmarks */}
-            <div className="mt-6 flex flex-col gap-2">
+            {/* <div className="mt-6 flex flex-col gap-2">
               {[
                 'Experienced Squint Specialists',
                 'Advanced Diagnostic & Treatment Technology',
@@ -671,7 +669,7 @@ export default function Home() {
                   <span className="text-xs font-semibold text-slate-700">{text}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="mt-4">
               <Link
@@ -735,19 +733,22 @@ export default function Home() {
               ABOUT US
             </span>
 
-            <h2 className="mt-1.5 text-2xl sm:text-[26px] xl:text-[28px] font-black tracking-tight text-clinic-navy leading-[1.2]">
+            {/* <h2 className="mt-1.5 text-2xl sm:text-[26px] xl:text-[28px] font-black tracking-tight text-clinic-navy leading-[1.2]">
               Trusted Experts in{' '}
               <span className="text-clinic-green">Squint</span> Treatment
-            </h2>
+            </h2> */}
 
-            <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
+            {/* <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
               At Child Eye Care &amp; Squint Clinic, we are committed to providing world-class
               squint treatment for children and adults. With advanced technology and expertise,
               we ensure the best possible outcomes for our patients.
+            </p> */}
+            <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
+              Child Eye Care & Squint Clinic, Indore is a specialized eye care centre dedicated to comprehensive pediatric eye care and squint management for children and adults. Led by Dr. Rishika Mutha, Pediatric Ophthalmologist & Adult Squint Surgeon, the clinic provides evaluation and treatment for conditions such as squint (strabismus), pediatric squint, double vision, nystagmus, lazy eye (amblyopia), myopia, and other childhood eye problems. We focus on accurate diagnosis, personalized treatment planning, and clear counselling to help every patient understand their condition and available treatment options. Our aim is to provide compassionate, advanced, and patient-focused eye care for Kids and Adults in a comfortable environment.
             </p>
 
             {/* 4 Checkmark List */}
-            <div className="mt-4 flex flex-col gap-2.5">
+            {/* <div className="mt-4 flex flex-col gap-2.5">
               {[
                 'Experienced Squint Specialists',
                 'Advanced Diagnostic & Treatment Technology',
@@ -761,7 +762,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm font-semibold text-slate-700">{text}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="mt-5">
               <Link
