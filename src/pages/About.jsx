@@ -59,6 +59,14 @@ export default function About() {
           {/* Left Column: Heading, intro, checklist, Know More button */}
           <div>
             <h2 className="text-2xl font-black tracking-tight text-clinic-navy sm:text-3xl">
+              World-Class Care for Better Vision
+            </h2>
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
+              Child Eye Care & Squint Clinic, Indore is a specialized eye care centre dedicated to comprehensive pediatric eye care and squint management for children and adults. Led by Dr. Rishika Mutha, Pediatric Ophthalmologist & Adult Squint Surgeon, the clinic provides evaluation and treatment for conditions such as squint (strabismus), pediatric squint, double vision, nystagmus, lazy eye (amblyopia), myopia, and other childhood eye problems. We focus on accurate diagnosis, personalized treatment planning, and clear counselling to help every patient understand their condition and available treatment options. Our aim is to provide compassionate, advanced, and patient-focused eye care for Kids and Adults in a comfortable environment.
+            </p>
+          </div>
+          {/* <div>
+            <h2 className="text-2xl font-black tracking-tight text-clinic-navy sm:text-3xl">
               World-Class Care for
               <span className="block">Better Vision</span>
             </h2>
@@ -86,7 +94,7 @@ export default function About() {
                 Know More
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* Middle Column: 2x2 Stat Cards */}
           <div className="grid grid-cols-2 gap-3.5">
