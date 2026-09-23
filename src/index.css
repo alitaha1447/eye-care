@@ -11,6 +11,36 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  /* =========================================================================
+     ROOT THEME COLOR PALETTE
+     Change colors here to update across the entire application
+     ========================================================================= */
+
+  /* Primary Theme Blue (Buttons & Heading/Accent Text) */
+  --clinic-primary: #0C4092;
+  --clinic-primary-hover: #093375;
+
+  /* Navigation Bar */
+  --clinic-nav-text: #696D73;
+  --clinic-nav-active: #0C4092;
+
+  /* Footer Colors */
+  --clinic-footer-bg: #01244E;
+  --clinic-footer-social: #143F84;
+  --clinic-footer-bottom: #0D3A7D;
+
+  /* Before & After Badges */
+  --clinic-badge-before: #2F221B;
+  --clinic-badge-after: #3C8037;
+
+  /* Clinic Brand Green & Mint */
+  --clinic-green: #268054;
+  --clinic-green-dark: #1C6944;
+  --clinic-mint: #EDF8F2;
+
+  /* Background Tints */
+  --clinic-bg-light: #EAF3FA;
 }
 
 * {
@@ -50,7 +80,8 @@ body {
 
 /* Hero Section Gradient Background */
 .hero-gradient {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FD 55%, #EAF3FA 100%);
+  /* background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FD 55%, #EAF3FA 100%); */
+  background: var(--clinic-bg-light, #EAF3FA);
 }
 
 /* Dark Navy Banner Gradient */
@@ -60,16 +91,20 @@ body {
 
 /* Before & After Pill Badges */
 .badge-before {
-  @apply inline-flex items-center rounded-md bg-slate-900/85 px-2.5 py-0.5 text-[11px] font-bold tracking-wider text-white shadow-sm backdrop-blur-sm;
+  @apply inline-flex items-center rounded-md bg-clinic-badge-before px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm;
 }
 
 .badge-after {
-  @apply inline-flex items-center rounded-md bg-clinic-green/90 px-2.5 py-0.5 text-[11px] font-bold tracking-wider text-white shadow-sm backdrop-blur-sm;
+  @apply inline-flex items-center rounded-md bg-clinic-badge-after px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm;
 }
 
 /* Form Input */
 .form-input {
-  @apply w-full rounded-md border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-clinic-green focus:ring-2 focus:ring-clinic-green/15;
+  @apply w-full rounded-md border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400;
+}
+.form-input:focus {
+  border-color: #268054;
+  box-shadow: 0 0 0 2px rgba(38, 128, 84, 0.15);
 }
 
 /* Buttons */

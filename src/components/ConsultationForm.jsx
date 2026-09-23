@@ -61,9 +61,9 @@ export default function ConsultationForm({ className = '', variant = 'default' }
   // White Card Variant matching the reference screenshot exactly
   if (variant === 'white') {
     return (
-      <div className={`flex flex-col justify-between rounded-2xl bg-[#082852] md:bg-white p-5 sm:p-6 text-white md:text-slate-800 shadow-card border border-white/10 md:border-slate-100 ${className}`}>
+      <div className={`flex flex-col justify-between rounded-2xl bg-clinic-navy md:bg-white p-5 sm:p-6 text-white md:text-slate-800 shadow-card border border-white/10 md:border-slate-100 ${className}`}>
         <div>
-          <h3 className="text-center text-lg sm:text-[21px] font-extrabold tracking-tight text-white md:text-[#082852]">
+          <h3 className="text-center text-lg sm:text-[21px] font-extrabold tracking-tight text-white md:text-clinic-navy">
             Book Your Consultation
           </h3>
           <p className="mt-0.5 text-center text-xs sm:text-sm text-blue-100/80 md:text-slate-500 font-medium">
@@ -160,7 +160,7 @@ export default function ConsultationForm({ className = '', variant = 'default' }
   // Default Navy Card Variant (used across other sub-pages)
   return (
     <div
-      className={`flex flex-col justify-between rounded-2xl bg-[#082852] p-5 sm:p-6 text-white shadow-card ${className}`}
+      className={`flex flex-col justify-between rounded-2xl bg-clinic-navy p-5 sm:p-6 text-white shadow-card ${className}`}
     >
       <h3 className="text-center text-lg sm:text-[21px] font-extrabold tracking-tight text-white mb-1">
         Book Your Consultation
@@ -173,7 +173,7 @@ export default function ConsultationForm({ className = '', variant = 'default' }
               size={36}
               className="mx-auto text-clinic-green mb-2"
             />
-            <p className="text-base font-bold text-[#082852]">Thank You!</p>
+            <p className="text-base font-bold text-clinic-navy">Thank You!</p>
             <p className="mt-1 text-sm text-slate-500">
               Our clinic team will contact you shortly.
             </p>

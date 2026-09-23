@@ -58,7 +58,7 @@ export default function About() {
         <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr_1.1fr] lg:items-center xl:gap-10">
           {/* Left Column: Heading, intro, checklist, Know More button */}
           <div>
-            <h2 className="text-2xl font-black tracking-tight text-[#082852] sm:text-3xl">
+            <h2 className="text-2xl font-black tracking-tight text-clinic-navy sm:text-3xl">
               World-Class Care for
               <span className="block">Better Vision</span>
             </h2>
@@ -95,10 +95,10 @@ export default function About() {
                 key={label}
                 className="flex flex-col items-center justify-center rounded-xl border border-slate-200/80 bg-white p-4 text-center shadow-xs transition hover:shadow-soft"
               >
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-slate-50 text-[#082852]">
+                <div className="grid h-10 w-10 place-items-center rounded-full bg-slate-50 text-clinic-navy">
                   <Icon size={20} />
                 </div>
-                <div className="mt-2 text-xl font-black text-[#082852] sm:text-2xl">
+                <div className="mt-2 text-xl font-black text-clinic-navy sm:text-2xl">
                   {value}
                 </div>
                 <div className="mt-1 text-xs sm:text-sm font-medium text-slate-500">
@@ -134,7 +134,7 @@ export default function About() {
                   <Icon size={22} strokeWidth={1.8} />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#082852]">
+                  <h3 className="text-base font-bold text-clinic-navy">
                     {title}
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-600">

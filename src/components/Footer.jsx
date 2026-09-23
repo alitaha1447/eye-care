@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Youtube, MapPin, Phone, Mail, Search, ArrowUp } from 'lucide-react'
 
@@ -17,8 +18,19 @@ function WhatsappIcon({ size = 13, className = '' }) {
 }
 
 export default function Footer() {
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 250)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <footer className="bg-[#061C39] text-white">
+    <footer className="bg-clinic-footer-bg text-white">
       <div className="container-clinic py-7 lg:py-11">
         <div className="grid gap-6 sm:gap-7 grid-cols-1 lg:grid-cols-[1.3fr_1.4fr_1.35fr_1.1fr_1fr] items-start">
           {/* Column 1: Brand & Description & Socials */}
@@ -58,7 +70,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="grid h-7 w-7 place-items-center rounded-full bg-[#124B8B] text-white transition hover:bg-[#1862b5]"
+                className="grid h-7 w-7 place-items-center rounded-full bg-clinic-footer-social text-white transition hover:opacity-90"
               >
                 <Facebook size={13} />
               </a>
@@ -67,7 +79,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="grid h-7 w-7 place-items-center rounded-full bg-[#124B8B] text-white transition hover:bg-[#1862b5]"
+                className="grid h-7 w-7 place-items-center rounded-full bg-clinic-footer-social text-white transition hover:opacity-90"
               >
                 <Instagram size={13} />
               </a>
@@ -76,7 +88,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="YouTube"
-                className="grid h-7 w-7 place-items-center rounded-full bg-[#124B8B] text-white transition hover:bg-[#1862b5]"
+                className="grid h-7 w-7 place-items-center rounded-full bg-clinic-footer-social text-white transition hover:opacity-90"
               >
                 <Youtube size={13} />
               </a>
@@ -85,7 +97,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
-                className="grid h-7 w-7 place-items-center rounded-full bg-[#124B8B] text-white transition hover:bg-[#1862b5]"
+                className="grid h-7 w-7 place-items-center rounded-full bg-clinic-footer-social text-white transition hover:opacity-90"
               >
                 <WhatsappIcon size={13} />
               </a>
@@ -182,7 +194,7 @@ export default function Footer() {
                 href="https://www.google.com/maps?ll=22.70521,75.908882&z=15&t=m&hl=en&gl=IN&mapclient=embed&cid=9105442730508839869"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 bg-[#082852] py-1.5 px-2 text-[11px] font-bold text-white transition hover:bg-[#0c3972]"
+                className="flex items-center justify-center gap-1.5 bg-clinic-navy py-1.5 px-2 text-[11px] font-bold text-white transition hover:opacity-90"
               >
                 <Search size={11} className="text-blue-200" />
                 <span>View on Google Maps</span>
@@ -206,25 +218,27 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10 bg-[#04152D] py-4">
-        <div className="container-clinic flex items-center justify-between text-xs text-blue-100/70">
-          <div>
-            &copy; 2025 Child Eye Care &amp; Squint Clinic.<br className="sm:hidden" /> All Rights Reserved.
-          </div>
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex flex-col items-center gap-1 text-slate-300 hover:text-white transition cursor-pointer"
-            aria-label="Back to top"
-          >
-            <div className="grid h-9 w-9 place-items-center rounded-full bg-clinic-green text-white shadow-md hover:bg-clinic-green-dark transition">
-              <ArrowUp size={16} strokeWidth={2.5} />
-            </div>
-            <span className="text-[10px] font-semibold text-slate-300">Back to Top</span>
-          </button>
+      {/* Bottom Bar (Auto Height) */}
+      <div className="h-auto border-t border-white/10 bg-clinic-footer-bottom py-3 sm:py-3.5">
+        <div className="container-clinic text-center sm:text-left text-xs text-blue-100/70">
+          &copy; 2025 Child Eye Care &amp; Squint Clinic. All Rights Reserved.
         </div>
       </div>
+
+      {/* Floating Back to Top Button */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-clinic-green text-white shadow-card transition-all duration-300 hover:bg-clinic-green-dark hover:scale-110 active:scale-95 cursor-pointer ${
+          showScrollTop
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="Back to top"
+        title="Back to Top"
+      >
+        <ArrowUp size={18} strokeWidth={2.5} />
+      </button>
     </footer>
   )
 }

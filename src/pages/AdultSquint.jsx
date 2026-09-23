@@ -55,7 +55,7 @@ export default function AdultSquint() {
 
           {/* Column 2: What is Adult Squint & 4 Feature Pills */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-xl font-black tracking-tight text-[#082852] sm:text-2xl">
+            <h2 className="text-xl font-black tracking-tight text-clinic-navy sm:text-2xl">
               What is Adult Squint?
             </h2>
 
@@ -117,7 +117,7 @@ export default function AdultSquint() {
         <div className="grid gap-6 md:grid-cols-3">
           {/* Card 1: Symptoms in Adults */}
           <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:shadow-soft">
-            <h3 className="text-base font-bold text-[#082852]">
+            <h3 className="text-base font-bold text-clinic-navy">
               Signs &amp; Symptoms in Adults
             </h3>
             <ul className="mt-4 flex flex-col gap-2.5 text-xs sm:text-sm text-slate-600 font-medium">
@@ -132,7 +132,7 @@ export default function AdultSquint() {
 
           {/* Card 2: Treatment Options */}
           <div className="rounded-xl border border-emerald-200/60 bg-[#EDF8F2] p-5 shadow-xs">
-            <h3 className="flex items-center gap-2 text-base font-bold text-[#082852]">
+            <h3 className="flex items-center gap-2 text-base font-bold text-clinic-navy">
               <CheckSquare size={16} className="text-clinic-green" />
               Treatment Options
             </h3>
@@ -155,7 +155,7 @@ export default function AdultSquint() {
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-clinic-green/30 bg-clinic-mint text-clinic-green">
               <HeartHandshake size={24} />
             </div>
-            <h3 className="mt-3 text-base font-bold text-[#082852]">
+            <h3 className="mt-3 text-base font-bold text-clinic-navy">
               Experienced Adult Care
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">

@@ -33,7 +33,7 @@ export default function Gallery() {
                 />
               </div>
               <div className="p-3 text-center">
-                <h3 className="text-sm font-bold text-[#082852]">{title}</h3>
+                <h3 className="text-sm font-bold text-clinic-navy">{title}</h3>
               </div>
             </div>
           ))}

@@ -140,7 +140,7 @@ const beforeAfterSlides = [
     id: 1,
     title: 'Kids Squint Correction',
     category: 'Kids (Pediatric)',
-    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    categoryColor: 'bg-blue-50 text-clinic-navy border-blue-100',
     before: '/images/home/squint-before.jpg',
     after: '/images/home/squint-after.jpg',
   },
@@ -156,7 +156,7 @@ const beforeAfterSlides = [
     id: 3,
     title: 'Pediatric Eye Alignment',
     category: 'Kids (Pediatric)',
-    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    categoryColor: 'bg-blue-50 text-clinic-navy border-blue-100',
     before: '/images/home/squint-before-full.jpg',
     after: '/images/home/squint-after-full.jpg',
   },
@@ -172,7 +172,7 @@ const beforeAfterSlides = [
     id: 5,
     title: 'Pediatric Precision Alignment',
     category: 'Kids (Pediatric)',
-    categoryColor: 'bg-blue-50 text-[#082852] border-blue-100',
+    categoryColor: 'bg-blue-50 text-clinic-navy border-blue-100',
     before: '/images/home/squint-before-eyes.jpg',
     after: '/images/home/squint-after-eyes.jpg',
   },
@@ -298,7 +298,7 @@ export default function Home() {
 
         <a
           href="tel:+919010888066"
-          className="flex items-center gap-2 rounded-l-full bg-[#082852] px-3.5 py-2 text-xs font-bold text-white shadow-card transition-transform hover:-translate-x-1"
+          className="flex items-center gap-2 rounded-l-full bg-clinic-navy px-3.5 py-2 text-xs font-bold text-white shadow-card transition-transform hover:-translate-x-1"
         >
           <Phone size={14} />
           <span>Call Now</span>
@@ -327,7 +327,7 @@ export default function Home() {
               <span className="inline-block text-[11px] sm:text-xs font-black tracking-[0.18em] text-clinic-green uppercase mb-1">
                 REAL RESULTS. REAL CONFIDENCE.
               </span>
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#082852] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-clinic-navy leading-tight">
                 Expert Squint Treatment &amp; Management
                 <span className="block text-clinic-green font-extrabold mt-0.5">
                   (for Adults &amp; Kids)
@@ -345,7 +345,7 @@ export default function Home() {
                 {/* Column 1: Kids (Pediatric) */}
                 <div className="flex flex-col gap-1.5">
                   <div className="text-center">
-                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-[#082852] border border-blue-100">
+                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-clinic-navy border border-blue-100">
                       Kids (Pediatric)
                     </span>
                   </div>
@@ -358,7 +358,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-1.5 left-1.5">
-                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-before px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
                         BEFORE
                       </span>
                     </div>
@@ -372,7 +372,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-1.5 left-1.5">
-                      <span className="inline-flex items-center rounded-md bg-clinic-green px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-after px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
                         AFTER
                       </span>
                     </div>
@@ -395,7 +395,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-1.5 left-1.5">
-                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-before px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
                         BEFORE
                       </span>
                     </div>
@@ -409,7 +409,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-1.5 left-1.5">
-                      <span className="inline-flex items-center rounded-md bg-clinic-green px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-after px-1.5 py-0.5 text-[8px] font-bold tracking-wider text-white shadow-sm">
                         AFTER
                       </span>
                     </div>
@@ -426,10 +426,10 @@ export default function Home() {
             <div className="grid grid-cols-4 gap-1 py-1 text-center">
               {stats.map(({ value, label, Icon }) => (
                 <div key={label} className="flex flex-col items-center">
-                  <div className="grid h-7 w-7 place-items-center rounded-full border border-slate-200 bg-white text-[#082852] shadow-xs mb-1">
+                  <div className="grid h-7 w-7 place-items-center rounded-full border border-slate-200 bg-white text-clinic-navy shadow-xs mb-1">
                     <Icon size={13} strokeWidth={2} />
                   </div>
-                  <div className="text-xs font-black text-[#082852] leading-tight">
+                  <div className="text-xs font-black text-clinic-navy leading-tight">
                     {value}
                   </div>
                   <div className="text-[9px] sm:text-[10px] font-semibold text-slate-500 leading-tight mt-0.5">
@@ -473,7 +473,7 @@ export default function Home() {
                 REAL RESULTS. REAL CONFIDENCE.
               </span>
 
-              <h1 className="mt-2 text-3xl font-black tracking-tight text-[#082852] sm:text-4xl lg:text-[40px] lg:leading-[1.12]">
+              <h1 className="mt-2 text-3xl font-black tracking-tight text-clinic-navy sm:text-4xl lg:text-[40px] lg:leading-[1.12]">
                 Expert Squint Treatment &amp; Management
                 <span className="block text-clinic-green font-extrabold mt-0.5">
                   (for Adults &amp; Kids)
@@ -489,11 +489,11 @@ export default function Home() {
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-2">
                 {stats.map(({ value, label, Icon }) => (
                   <div key={label} className="flex items-center gap-2">
-                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-[#082852] shadow-xs">
+                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-clinic-navy shadow-xs">
                       <Icon size={15} strokeWidth={2} />
                     </div>
                     <div>
-                      <div className="text-sm font-black text-[#082852] leading-tight">
+                      <div className="text-sm font-black text-clinic-navy leading-tight">
                         {value}
                       </div>
                       <div className="text-xs font-semibold text-slate-500 leading-tight">
@@ -509,7 +509,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={scrollToForm}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#082852] px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-[#0e3a75] shadow-sm active:scale-[0.99] cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-clinic-navy px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-clinic-navy-light shadow-sm active:scale-[0.99] cursor-pointer"
                 >
                   <CalendarDays size={14} />
                   Book Appointment
@@ -517,7 +517,7 @@ export default function Home() {
 
                 <a
                   href="tel:+919010888066"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#082852] bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-[#082852] transition hover:bg-slate-50 shadow-sm active:scale-[0.99]"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-clinic-navy bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-clinic-navy transition hover:bg-slate-50 shadow-sm active:scale-[0.99]"
                 >
                   <Phone size={14} />
                   Call Now
@@ -531,7 +531,7 @@ export default function Home() {
                 {/* Column 1: Kids (Pediatric) */}
                 <div className="flex flex-col gap-2">
                   <div className="text-center">
-                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold text-[#082852] border border-blue-100">
+                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold text-clinic-navy border border-blue-100">
                       Kids (Pediatric)
                     </span>
                   </div>
@@ -544,7 +544,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-before px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
                         BEFORE
                       </span>
                     </div>
@@ -558,7 +558,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="inline-flex items-center rounded-md bg-clinic-green px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-after px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
                         AFTER
                       </span>
                     </div>
@@ -581,7 +581,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="inline-flex items-center rounded-md bg-[#181F2B] px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-before px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
                         BEFORE
                       </span>
                     </div>
@@ -595,7 +595,7 @@ export default function Home() {
                       className="h-full w-full object-cover object-center"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="inline-flex items-center rounded-md bg-clinic-green px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
+                      <span className="inline-flex items-center rounded-md bg-clinic-badge-after px-2 py-0.5 text-[9px] font-bold tracking-wider text-white shadow-sm">
                         AFTER
                       </span>
                     </div>
@@ -619,16 +619,16 @@ export default function Home() {
       {/* =========================================================================
           SECTION 2: ABOUT US & WHY CHOOSE US
           ========================================================================= */}
-      <section className="container-clinic py-8 lg:py-14">
+      <section className="pt-8 pb-0 lg:py-14">
         {/* MOBILE VIEW (< lg): Matches Screen 2 exactly */}
-        <div className="flex flex-col gap-6 lg:hidden">
+        <div className="flex flex-col lg:hidden">
           {/* About Us Content */}
-          <div>
-            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+          <div className="container-clinic">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
               ABOUT US
             </span>
 
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#082852] leading-tight">
+            <h2 className="mt-2 text-2xl font-black tracking-tight text-clinic-navy leading-tight">
               Trusted Experts in <br />
               Squint Treatment
             </h2>
@@ -648,7 +648,7 @@ export default function Home() {
                   className="h-full w-full object-cover object-top"
                 />
               </div>
-              <div className="absolute -bottom-2 -left-2 z-20 rounded-xl bg-[#082852] px-3.5 py-2 text-white shadow-lg border border-white/20">
+              <div className="absolute -bottom-2 -left-2 z-20 rounded-xl bg-clinic-navy px-3.5 py-2 text-white shadow-lg border border-white/20">
                 <div className="text-xl font-black leading-none">15+</div>
                 <div className="text-[10px] font-medium text-white/90 leading-tight mt-0.5">
                   Years of<br />Experience
@@ -676,7 +676,7 @@ export default function Home() {
             <div className="mt-4">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center rounded-md bg-[#082852] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#0e3a75] shadow-sm"
+                className="inline-flex items-center justify-center rounded-md bg-clinic-navy px-5 py-2.5 text-xs font-bold text-white transition hover:bg-clinic-navy-light shadow-sm"
               >
                 Know More About Us
               </Link>
@@ -684,31 +684,33 @@ export default function Home() {
           </div>
 
           {/* Why Choose Us? 2x3 Grid */}
-          <div className="mt-2 pt-6 border-t border-slate-100">
-            <h3 className="text-center text-xl font-black tracking-tight text-[#082852]">
-              Why Choose Us?
-            </h3>
-            <div className="mt-4 grid grid-cols-2 gap-2.5">
-              {features.map(({ title, subtitle, Icon }) => (
-                <div
-                  key={subtitle}
-                  className="flex flex-col items-center text-center p-3.5 rounded-xl border border-slate-100 bg-white shadow-xs"
-                >
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-blue-50 text-[#155799] mb-2">
-                    <Icon size={18} strokeWidth={2} />
+          <div className="mt-8 bg-[#EAF3FA] py-8">
+            <div className="container-clinic">
+              <h3 className="text-center text-xl font-black tracking-tight text-clinic-navy">
+                Why Choose Us?
+              </h3>
+              <div className="mt-4 grid grid-cols-2 gap-2.5">
+                {features.map(({ title, subtitle, Icon }) => (
+                  <div
+                    key={subtitle}
+                    className="flex flex-col items-center text-center p-3.5 rounded-2xl border border-slate-100 bg-white shadow-xs"
+                  >
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-blue-50 text-clinic-navy mb-2">
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                    <div className="text-xs font-bold text-clinic-navy leading-tight">{title}</div>
+                    <div className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">
+                      {subtitle}
+                    </div>
                   </div>
-                  <div className="text-xs font-bold text-[#082852] leading-tight">{title}</div>
-                  <div className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">
-                    {subtitle}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* DESKTOP VIEW (lg:grid): Preserved exactly */}
-        <div className="hidden lg:grid gap-6 lg:grid-cols-[290px_340px_1fr] xl:grid-cols-[320px_360px_1fr] items-center">
+        <div className="container-clinic hidden lg:grid gap-6 lg:grid-cols-[290px_340px_1fr] xl:grid-cols-[320px_360px_1fr] items-center">
           {/* Column 1: Doctor Portrait with Green Offset Background Card */}
           <div className="relative mx-auto w-full max-w-[240px] sm:max-w-[260px]">
             <div className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[32px] bg-[#268054] -z-0" />
@@ -719,7 +721,7 @@ export default function Home() {
                 className="h-full w-full object-cover object-top"
               />
             </div>
-            <div className="absolute -bottom-2 -left-3 z-20 rounded-xl bg-[#082852] px-4 py-2.5 text-white shadow-xl border border-white/20">
+            <div className="absolute -bottom-2 -left-3 z-20 rounded-xl bg-clinic-navy px-4 py-2.5 text-white shadow-xl border border-white/20">
               <div className="text-2xl sm:text-3xl font-black leading-none">15+</div>
               <div className="text-xs font-medium text-white/90 leading-tight mt-1">
                 Years of Experience
@@ -733,7 +735,7 @@ export default function Home() {
               ABOUT US
             </span>
 
-            <h2 className="mt-1.5 text-2xl sm:text-[26px] xl:text-[28px] font-black tracking-tight text-[#082852] leading-[1.2]">
+            <h2 className="mt-1.5 text-2xl sm:text-[26px] xl:text-[28px] font-black tracking-tight text-clinic-navy leading-[1.2]">
               Trusted Experts in{' '}
               <span className="text-clinic-green">Squint</span> Treatment
             </h2>
@@ -764,7 +766,7 @@ export default function Home() {
             <div className="mt-5">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center rounded-full bg-[#082852] px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-[#0e3a75] shadow-sm active:scale-[0.99]"
+                className="inline-flex items-center justify-center rounded-full bg-clinic-navy px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-clinic-navy-light shadow-sm active:scale-[0.99]"
               >
                 Know More About Us
               </Link>
@@ -776,7 +778,7 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 items-center">
               {features.map(({ title, subtitle, Icon }) => (
                 <div key={subtitle} className="flex items-center gap-2">
-                  <div className="text-[#155799] shrink-0">
+                  <div className="text-clinic-navy shrink-0">
                     <Icon size={20} strokeWidth={1.75} />
                   </div>
                   <div className="leading-tight">
@@ -791,7 +793,7 @@ export default function Home() {
             <div className="rounded-2xl border border-slate-100 bg-white py-5 px-4 shadow-sm">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 divide-slate-100 sm:divide-x text-center">
                 <div className="flex flex-col items-center">
-                  <Users size={24} className="text-[#155799] mb-1.5" strokeWidth={1.75} />
+                  <Users size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
                   <span className="text-2xl xl:text-3xl font-black text-clinic-green">5000+</span>
                   <span className="text-xs font-semibold text-slate-500 mt-0.5">
                     Happy Patients
@@ -799,7 +801,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
-                  <Sparkles size={24} className="text-[#155799] mb-1.5" strokeWidth={1.75} />
+                  <Sparkles size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
                   <span className="text-2xl xl:text-3xl font-black text-clinic-green">2000+</span>
                   <span className="text-xs font-semibold text-slate-500 mt-0.5">
                     Successful Surgeries
@@ -807,7 +809,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
-                  <Award size={24} className="text-[#155799] mb-1.5" strokeWidth={1.75} />
+                  <Award size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
                   <span className="text-2xl xl:text-3xl font-black text-clinic-green">15+</span>
                   <span className="text-xs font-semibold text-slate-500 mt-0.5">
                     Years Experience
@@ -815,7 +817,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center sm:pl-3">
-                  <ThumbsUp size={24} className="text-[#155799] mb-1.5" strokeWidth={1.75} />
+                  <ThumbsUp size={24} className="text-clinic-navy mb-1.5" strokeWidth={1.75} />
                   <span className="text-2xl xl:text-3xl font-black text-clinic-green">95%</span>
                   <span className="text-xs font-semibold text-slate-500 mt-0.5">
                     Patient Satisfaction
@@ -837,10 +839,10 @@ export default function Home() {
             {/* Our Advanced Techniques (Vertical List) */}
             <div>
               <div className="text-center mb-4">
-                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
                   OUR ADVANCED TECHNIQUES
                 </span>
-                <h2 className="mt-1.5 text-xl sm:text-2xl font-black tracking-tight text-[#082852]">
+                <h2 className="mt-1.5 text-xl sm:text-2xl font-black tracking-tight text-clinic-navy">
                   Advanced Techniques<br />for Better Results
                 </h2>
               </div>
@@ -852,7 +854,7 @@ export default function Home() {
                     className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-3 shadow-xs"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-slate-200 bg-slate-50 text-[#155799]">
+                      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-slate-200 bg-slate-50 text-clinic-navy">
                         <Icon size={18} strokeWidth={1.8} />
                       </div>
                       <span className="text-xs font-bold text-slate-800">
@@ -868,9 +870,9 @@ export default function Home() {
             </div>
 
             {/* Our Consultation Journey (Navy Vertical Timeline) */}
-            <div className="-mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl bg-[#082852] p-6 text-white shadow-card">
+            <div className="-mx-4 sm:-mx-6 lg:mx-0 rounded-t-3xl lg:rounded-2xl rounded-b-none lg:rounded-b-2xl bg-clinic-navy p-6 text-white shadow-card">
               <div className="text-center mb-6">
-                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-emerald-950/80 border border-clinic-green/30 px-3 py-1 rounded-full uppercase">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green px-3 py-1 rounded-full uppercase">
                   OUR CONSULTATION JOURNEY
                 </span>
                 <h2 className="mt-1.5 text-xl font-black tracking-tight text-white">
@@ -883,7 +885,7 @@ export default function Home() {
                 <div className="absolute left-[17px] top-4 bottom-4 w-px border-l-2 border-dashed border-white/25" />
                 {consultationSteps.map(({ step, name }) => (
                   <div key={step} className="relative z-10 flex items-center gap-4">
-                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white font-black text-xs text-[#082852] shadow-sm">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white font-black text-xs text-clinic-navy shadow-sm">
                       {step}
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-white leading-tight">
@@ -911,7 +913,7 @@ export default function Home() {
                 {techniques.map(({ name, Icon }, i) => (
                   <div key={name} className="flex items-center">
                     <div className="flex flex-col items-center text-center w-[72px] sm:w-[84px]">
-                      <div className="grid h-12 w-12 place-items-center rounded-full border-2 border-[#155799] bg-white text-[#155799] shadow-xs transition hover:border-clinic-green hover:text-clinic-green">
+                      <div className="grid h-12 w-12 place-items-center rounded-full border-2 border-clinic-navy bg-white text-clinic-navy shadow-xs transition hover:border-clinic-green hover:text-clinic-green">
                         <Icon size={18} strokeWidth={1.8} />
                       </div>
                       <p className="mt-2 text-xs font-bold leading-tight text-slate-700 whitespace-pre-line">
@@ -947,7 +949,7 @@ export default function Home() {
                 {consultationSteps.map(({ step, name, Icon }, i) => (
                   <div key={step} className="flex items-center">
                     <div className="flex flex-col items-center text-center w-[72px] sm:w-[84px]">
-                      <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-dashed border-[#155799]/70 bg-white text-[#155799] shadow-xs transition hover:border-clinic-green hover:text-clinic-green">
+                      <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-dashed border-clinic-navy/70 bg-white text-clinic-navy shadow-xs transition hover:border-clinic-green hover:text-clinic-green">
                         <span className="absolute -top-1.5 rounded-full bg-clinic-mint px-1 text-[9px] font-black text-clinic-green border border-clinic-green/30">
                           {step}
                         </span>
@@ -980,10 +982,10 @@ export default function Home() {
         <div className="flex flex-col gap-7 lg:hidden">
           {/* Card 1: Before & After Results Carousel (Working Carousel with Kids & Adults) */}
           <div className="flex flex-col items-center text-center">
-            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
               BEFORE &amp; AFTER RESULTS
             </span>
-            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+            <h3 className="mt-1.5 text-xl font-black text-clinic-navy">
               Real Results. Real Stories.
             </h3>
             <div className="w-8 h-0.5 bg-clinic-green mx-auto mt-2 rounded-full" />
@@ -1006,7 +1008,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setCurrentSlide((prev) => (prev - 1 + beforeAfterSlides.length) % beforeAfterSlides.length)}
-                className="absolute -left-2 sm:-left-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-[#082852] hover:bg-white hover:text-clinic-green transition cursor-pointer"
+                className="absolute -left-2 sm:-left-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-clinic-navy hover:bg-white hover:text-clinic-green transition cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ChevronLeft size={16} strokeWidth={2.5} />
@@ -1016,7 +1018,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setCurrentSlide((prev) => (prev + 1) % beforeAfterSlides.length)}
-                className="absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-[#082852] hover:bg-white hover:text-clinic-green transition cursor-pointer"
+                className="absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 z-20 grid h-8 w-8 place-items-center rounded-full bg-white/95 shadow-md text-clinic-navy hover:bg-white hover:text-clinic-green transition cursor-pointer"
                 aria-label="Next slide"
               >
                 <ChevronRight size={16} strokeWidth={2.5} />
@@ -1033,7 +1035,7 @@ export default function Home() {
                     className="h-full w-full object-cover transition-opacity duration-300"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="inline-flex items-center rounded-md bg-[#0B4F9C] px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                    <span className="inline-flex items-center rounded-md bg-clinic-badge-before px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
                       Before
                     </span>
                   </div>
@@ -1048,7 +1050,7 @@ export default function Home() {
                     className="h-full w-full object-cover transition-opacity duration-300"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="inline-flex items-center rounded-md bg-clinic-green px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                    <span className="inline-flex items-center rounded-md bg-clinic-badge-after px-2 py-0.5 text-[9px] font-bold text-white shadow-sm">
                       After
                     </span>
                   </div>
@@ -1063,11 +1065,10 @@ export default function Home() {
                   key={slide.id}
                   type="button"
                   onClick={() => setCurrentSlide(idx)}
-                  className={`transition-all duration-300 cursor-pointer ${
-                    currentSlide === idx
-                      ? 'h-1.5 w-5 rounded-full bg-[#082852]'
-                      : 'h-1.5 w-1.5 rounded-full bg-slate-300 hover:bg-slate-400'
-                  }`}
+                  className={`transition-all duration-300 cursor-pointer ${currentSlide === idx
+                    ? 'h-1.5 w-5 rounded-full bg-clinic-navy'
+                    : 'h-1.5 w-1.5 rounded-full bg-slate-300 hover:bg-slate-400'
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -1079,10 +1080,10 @@ export default function Home() {
 
           {/* Card 2: Patient Success Stories */}
           <div className="flex flex-col items-center text-center">
-            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
               PATIENT SUCCESS STORIES
             </span>
-            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+            <h3 className="mt-1.5 text-xl font-black text-clinic-navy">
               Hear From Our Patients
             </h3>
 
@@ -1096,7 +1097,7 @@ export default function Home() {
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/25">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-clinic-navy shadow-md transition-transform group-hover:scale-110">
                   <Play size={20} fill="currentColor" className="ml-0.5" />
                 </div>
               </div>
@@ -1114,10 +1115,10 @@ export default function Home() {
 
           {/* Card 3: Virtual Clinic Tour */}
           <div className="flex flex-col items-center text-center">
-            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
               VIRTUAL CLINIC TOUR
             </span>
-            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+            <h3 className="mt-1.5 text-xl font-black text-clinic-navy">
               Take a 360° Tour<br />of Our Clinic
             </h3>
 
@@ -1131,7 +1132,7 @@ export default function Home() {
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/25">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-clinic-navy shadow-md transition-transform group-hover:scale-110">
                   <Play size={20} fill="currentColor" className="ml-0.5" />
                 </div>
               </div>
@@ -1139,7 +1140,7 @@ export default function Home() {
 
             <Link
               to="/gallery"
-              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-[#082852] hover:text-clinic-green transition"
+              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-clinic-navy hover:text-clinic-green transition"
             >
               <Globe size={15} />
               <span>Explore Our Clinic</span>
@@ -1148,10 +1149,10 @@ export default function Home() {
 
           {/* Card 4: Photo Gallery */}
           <div className="flex flex-col items-center text-center">
-            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase">
+            <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase">
               PHOTO GALLERY
             </span>
-            <h3 className="mt-1.5 text-xl font-black text-[#082852]">
+            <h3 className="mt-1.5 text-xl font-black text-clinic-navy">
               Inside Our Clinic
             </h3>
 
@@ -1169,7 +1170,7 @@ export default function Home() {
 
             <Link
               to="/gallery"
-              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-[#082852] hover:text-clinic-green transition"
+              className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-clinic-navy hover:text-clinic-green transition"
             >
               <Eye size={15} />
               <span>View Full Gallery</span>
@@ -1182,7 +1183,7 @@ export default function Home() {
           {/* Card 1: Patient Success Stories with Playable Video */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-md">
             <div>
-              <h3 className="text-sm sm:text-base font-black text-[#082852] uppercase tracking-wide">
+              <h3 className="text-sm sm:text-base font-black text-clinic-navy uppercase tracking-wide">
                 PATIENT SUCCESS STORIES
               </h3>
               <p className="text-xs sm:text-[13px] text-slate-500 font-medium mt-0.5">Real stories. Real results.</p>
@@ -1197,7 +1198,7 @@ export default function Home() {
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/25 transition-colors group-hover:bg-black/35">
-                  <div className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                  <div className="grid h-11 w-11 place-items-center rounded-full bg-white text-clinic-navy shadow-md transition-transform group-hover:scale-110">
                     <Play size={18} fill="currentColor" className="ml-0.5" />
                   </div>
                 </div>
@@ -1217,7 +1218,7 @@ export default function Home() {
           {/* Card 2: Virtual Clinic Tour */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-md">
             <div>
-              <h3 className="text-sm sm:text-base font-black text-[#082852] uppercase tracking-wide">
+              <h3 className="text-sm sm:text-base font-black text-clinic-navy uppercase tracking-wide">
                 VIRTUAL CLINIC TOUR
               </h3>
               <p className="text-xs sm:text-[13px] text-slate-500 font-medium mt-0.5">Take a 360° tour of our clinic</p>
@@ -1232,7 +1233,7 @@ export default function Home() {
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/25 transition-colors group-hover:bg-black/35">
-                  <div className="grid h-11 w-11 place-items-center rounded-full bg-white text-[#082852] shadow-md transition-transform group-hover:scale-110">
+                  <div className="grid h-11 w-11 place-items-center rounded-full bg-white text-clinic-navy shadow-md transition-transform group-hover:scale-110">
                     <Play size={18} fill="currentColor" className="ml-0.5" />
                   </div>
                 </div>
@@ -1241,7 +1242,7 @@ export default function Home() {
 
             <Link
               to="/gallery"
-              className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[#082852] hover:text-clinic-green transition"
+              className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-clinic-navy hover:text-clinic-green transition"
             >
               <ExternalLink size={14} />
               <span>Explore Virtual Tour</span>
@@ -1251,7 +1252,7 @@ export default function Home() {
           {/* Card 3: Photo Gallery */}
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-md md:col-span-2 lg:col-span-1">
             <div>
-              <h3 className="text-sm sm:text-base font-black text-[#082852] uppercase tracking-wide">
+              <h3 className="text-sm sm:text-base font-black text-clinic-navy uppercase tracking-wide">
                 PHOTO GALLERY
               </h3>
               <p className="text-xs sm:text-[13px] text-slate-500 font-medium mt-0.5">A glimpse of our clinic</p>
@@ -1271,7 +1272,7 @@ export default function Home() {
 
             <Link
               to="/gallery"
-              className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[#082852] hover:text-clinic-green transition"
+              className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-clinic-navy hover:text-clinic-green transition"
             >
               <Eye size={14} />
               <span>View Full Gallery</span>
@@ -1289,10 +1290,10 @@ export default function Home() {
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-sm transition hover:shadow-md">
             <div>
               <div className="border-b border-slate-100 pb-3 text-center sm:text-left">
-                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green bg-[#EDF8F2] px-3 py-1 rounded-full uppercase mb-1.5 sm:hidden">
+                <span className="inline-block text-[11px] font-black tracking-wider text-clinic-green uppercase mb-1.5 sm:hidden">
                   FREQUENTLY ASKED QUESTIONS
                 </span>
-                <h3 className="text-base sm:text-lg font-black text-[#082852] uppercase tracking-wide">
+                <h3 className="text-base sm:text-lg font-black text-clinic-navy uppercase tracking-wide">
                   FREQUENTLY ASKED QUESTIONS
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">
@@ -1311,7 +1312,7 @@ export default function Home() {
                       <div className="flex items-center gap-2.5">
                         <HelpCircle
                           size={15}
-                          className={`shrink-0 ${faq.iconColor === 'green' ? 'text-clinic-green' : 'text-[#0B4F9C]'}`}
+                          className={`shrink-0 ${faq.iconColor === 'green' ? 'text-clinic-green' : 'text-clinic-navy'}`}
                         />
                         <span className="leading-snug">{faq.q}</span>
                       </div>
@@ -1333,7 +1334,7 @@ export default function Home() {
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center">
               <Link
                 to="/faq"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#082852] lg:bg-transparent py-2.5 lg:py-0 px-4 text-xs sm:text-sm font-bold text-white lg:text-[#082852] hover:text-clinic-green transition"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-clinic-navy lg:bg-transparent py-2.5 lg:py-0 px-4 text-xs sm:text-sm font-bold text-white lg:text-clinic-navy hover:text-clinic-green transition"
               >
                 <HelpCircle size={14} />
                 <span>View All FAQs</span>
@@ -1404,7 +1405,7 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between bg-[#082852] px-4 py-2.5 text-white">
+            <div className="flex items-center justify-between bg-clinic-navy px-4 py-2.5 text-white">
               <div className="flex items-center gap-2">
                 <YoutubeIcon size={16} className="text-red-500" />
                 <span className="text-xs font-bold">

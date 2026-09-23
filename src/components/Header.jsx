@@ -61,13 +61,13 @@ export default function Header() {
             <svg viewBox="0 0 100 70" className="h-9 w-11 sm:h-10 sm:w-12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M50 8C27 8 9 35 9 35C9 35 27 62 50 62C73 62 91 35 91 35C91 35 73 8 50 8Z"
-                stroke="#082852"
+                stroke="var(--clinic-primary, #0C4092)"
                 strokeWidth="7"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <circle cx="50" cy="35" r="18" fill="#268054" />
-              <circle cx="50" cy="35" r="8" fill="#082852" />
+              <circle cx="50" cy="35" r="8" fill="var(--clinic-primary, #0C4092)" />
               <circle cx="46" cy="31" r="3" fill="#ffffff" />
             </svg>
           </div>
@@ -90,8 +90,8 @@ export default function Header() {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className={({ isActive }) =>
                 `text-[13.5px] xl:text-[14.5px] font-semibold tracking-normal transition-colors duration-150 ${isActive
-                  ? 'text-clinic-green font-bold'
-                  : 'text-slate-700 hover:text-clinic-green'
+                  ? 'text-clinic-nav-active font-bold'
+                  : 'text-clinic-nav-text hover:text-clinic-nav-active'
                 }`
               }
             >
@@ -124,7 +124,7 @@ export default function Header() {
         <div className="flex items-center gap-2.5 lg:hidden">
           <a
             href="tel:+919010888066"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#082852] text-white shadow-xs transition hover:bg-[#0c3972]"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-clinic-navy text-white shadow-xs transition hover:bg-clinic-navy-light"
             aria-label="Call Clinic"
           >
             <Phone size={15} />
@@ -154,8 +154,8 @@ export default function Header() {
                 }}
                 className={({ isActive }) =>
                   `rounded-md px-3.5 py-2.5 text-[15px] font-medium transition ${isActive
-                    ? 'bg-clinic-mint font-bold text-clinic-green'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-clinic-navy'
+                    ? 'bg-blue-50 font-bold text-clinic-nav-active'
+                    : 'text-clinic-nav-text hover:bg-slate-50 hover:text-clinic-nav-active'
                   }`
                 }
               >

@@ -33,7 +33,7 @@ export default function Thanks() {
             Consultation Request Received
           </span>
 
-          <h1 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#082852]">
+          <h1 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-clinic-navy">
             Thank You for Contacting Us!
           </h1>
 
@@ -43,7 +43,7 @@ export default function Thanks() {
 
           {/* Key Next Steps Card */}
           <div className="mt-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/70 p-5 sm:p-6 text-left">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#082852] mb-3">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-clinic-navy mb-3">
               What Happens Next?
             </h3>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
@@ -76,7 +76,7 @@ export default function Thanks() {
               </div>
               <div>
                 <div className="text-[11px] font-semibold text-slate-400">Clinic Hours</div>
-                <div className="text-xs font-bold text-[#082852]">Mon – Sat: 10:00 AM – 7:00 PM</div>
+                <div className="text-xs font-bold text-clinic-navy">Mon – Sat: 10:00 AM – 7:00 PM</div>
               </div>
             </div>
 
@@ -86,7 +86,7 @@ export default function Thanks() {
               </div>
               <div>
                 <div className="text-[11px] font-semibold text-slate-400">Location</div>
-                <div className="text-xs font-bold text-[#082852]">Indore, Madhya Pradesh</div>
+                <div className="text-xs font-bold text-clinic-navy">Indore, Madhya Pradesh</div>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function Thanks() {
 
             <a
               href="tel:+919010888066"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-clinic-navy bg-white px-5 py-2.5 text-xs font-bold text-[#082852] transition hover:bg-slate-50 shadow-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-clinic-navy bg-white px-5 py-2.5 text-xs font-bold text-clinic-navy transition hover:bg-slate-50 shadow-sm"
             >
               <Phone size={15} />
               Call Now: +91 90108 88066

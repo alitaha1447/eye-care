@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1.25fr_1.15fr] xl:gap-10">
           {/* Column 1: Get in Touch */}
           <div>
-            <h2 className="text-xl font-black tracking-tight text-[#082852] sm:text-2xl">
+            <h2 className="text-xl font-black tracking-tight text-clinic-navy sm:text-2xl">
               Get in Touch
             </h2>
 
@@ -41,7 +41,7 @@ export default function Contact() {
                   <MapPin size={17} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#082852]">Address</div>
+                  <div className="text-sm font-bold text-clinic-navy">Address</div>
                   <div className="mt-1 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
                     204, Krishna Tower Building, near Pipliyahana Square,<br />
                     Above Bank of Baroda, Brajeshwari Extension,<br />
@@ -56,7 +56,7 @@ export default function Contact() {
                   <Phone size={17} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#082852]">Phone</div>
+                  <div className="text-sm font-bold text-clinic-navy">Phone</div>
                   <a
                     href="tel:+919010888066"
                     className="mt-1 block text-xs sm:text-sm font-semibold text-slate-700 hover:text-clinic-green"
@@ -72,7 +72,7 @@ export default function Contact() {
                   <Mail size={17} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#082852]">Email</div>
+                  <div className="text-sm font-bold text-clinic-navy">Email</div>
                   <a
                     href="mailto:info@childeyecare.com"
                     className="mt-1 block text-xs sm:text-sm font-semibold text-slate-700 hover:text-clinic-green"
@@ -88,7 +88,7 @@ export default function Contact() {
                   <Clock3 size={17} />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#082852]">Working Hours</div>
+                  <div className="text-sm font-bold text-clinic-navy">Working Hours</div>
                   <div className="mt-1 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
                     Mon - Sat: 10:00 AM - 7:00 PM<br />
                     Sunday: By Appointment Only
@@ -100,14 +100,14 @@ export default function Contact() {
 
           {/* Column 2: Send Us a Message */}
           <div className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-xs sm:p-6">
-            <h3 className="text-base font-bold text-[#082852]">
+            <h3 className="text-base font-bold text-clinic-navy">
               Send Us a Message
             </h3>
 
             {submitted ? (
               <div className="my-8 rounded-lg bg-clinic-mint p-5 text-center">
                 <CheckCircle2 size={32} className="mx-auto text-clinic-green mb-2" />
-                <h4 className="text-base font-bold text-[#082852]">Message Sent!</h4>
+                <h4 className="text-base font-bold text-clinic-navy">Message Sent!</h4>
                 <p className="mt-1 text-xs sm:text-sm text-slate-600">
                   Thank you for reaching out. We will get back to you shortly.
                 </p>
