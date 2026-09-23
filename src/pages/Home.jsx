@@ -707,84 +707,62 @@ export default function Home() {
           </div>
         </div>
 
-        {/* DESKTOP VIEW (lg:grid): Preserved exactly */}
-        <div className="container-clinic hidden lg:grid gap-6 lg:grid-cols-[290px_340px_1fr] xl:grid-cols-[320px_360px_1fr] items-center">
-          {/* Column 1: Doctor Portrait with Green Offset Background Card */}
-          <div className="relative mx-auto w-full max-w-[240px] sm:max-w-[260px]">
-            <div className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[32px] bg-[#268054] -z-0" />
-            <div className="relative z-10 overflow-hidden rounded-[28px] bg-white aspect-[4/5] shadow-sm">
-              <img
-                src="/images/about/doctor-portrait-clean.jpg"
-                alt="Squint Specialist Doctor"
-                className="h-full w-full object-cover object-top"
-              />
+        {/* DESKTOP VIEW (hidden lg:flex flex-col) */}
+        <div className="container-clinic max-w-6xl xl:max-w-7xl mx-auto hidden lg:flex flex-col gap-10 xl:gap-12">
+          {/* Row 1: 40% - 60% Ratio for Image and Content */}
+          <div className="w-full max-w-6xl xl:max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 lg:gap-10 xl:gap-12 items-center">
+            {/* Column 1 (40%): Doctor Portrait with Green Offset Background Card */}
+            <div className="relative flex justify-end">
+              <div className="relative w-full max-w-[300px] xl:max-w-[340px]">
+                <div className="absolute inset-0 -translate-x-3.5 translate-y-3.5 rounded-[32px] bg-[#268054] -z-0" />
+                <div className="relative z-10 overflow-hidden rounded-[28px] bg-white aspect-[4/5] shadow-md border border-slate-100">
+                  <img
+                    src="/images/about/doctor-portrait-clean.jpg"
+                    alt="Squint Specialist Doctor"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div className="absolute -bottom-2 -left-3 z-20 rounded-xl bg-clinic-navy px-4 py-2.5 text-white shadow-xl border border-white/20">
+                  <div className="text-2xl sm:text-3xl font-black leading-none">15+</div>
+                  <div className="text-xs font-medium text-white/90 leading-tight mt-1">
+                    Years of Experience
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="absolute -bottom-2 -left-3 z-20 rounded-xl bg-clinic-navy px-4 py-2.5 text-white shadow-xl border border-white/20">
-              <div className="text-2xl sm:text-3xl font-black leading-none">15+</div>
-              <div className="text-xs font-medium text-white/90 leading-tight mt-1">
-                Years of Experience
+
+            {/* Column 2 (60%): About Us Text Content */}
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl font-black tracking-[0.16em] text-clinic-green uppercase">
+                ABOUT US
+              </span>
+
+              <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
+                Child Eye Care &amp; Squint Clinic, Indore is a specialized eye care centre dedicated to comprehensive pediatric eye care and squint management for children and adults. Led by Dr. Rishika Mutha, Pediatric Ophthalmologist &amp; Adult Squint Surgeon, the clinic provides evaluation and treatment for conditions such as squint (strabismus), pediatric squint, double vision, nystagmus, lazy eye (amblyopia), myopia, and other childhood eye problems. We focus on accurate diagnosis, personalized treatment planning, and clear counselling to help every patient understand their condition and available treatment options. Our aim is to provide compassionate, advanced, and patient-focused eye care for Kids and Adults in a comfortable environment.
+              </p>
+
+              <div className="mt-6">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center rounded-full bg-clinic-navy px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-clinic-navy-light shadow-sm active:scale-[0.99]"
+                >
+                  Know More About Us
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Column 2: About Us Text Content */}
-          <div className="flex flex-col justify-center">
-            <span className="text-xs font-black tracking-[0.16em] text-clinic-green uppercase">
-              ABOUT US
-            </span>
-
-            {/* <h2 className="mt-1.5 text-2xl sm:text-[26px] xl:text-[28px] font-black tracking-tight text-clinic-navy leading-[1.2]">
-              Trusted Experts in{' '}
-              <span className="text-clinic-green">Squint</span> Treatment
-            </h2> */}
-
-            {/* <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
-              At Child Eye Care &amp; Squint Clinic, we are committed to providing world-class
-              squint treatment for children and adults. With advanced technology and expertise,
-              we ensure the best possible outcomes for our patients.
-            </p> */}
-            <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-slate-600">
-              Child Eye Care & Squint Clinic, Indore is a specialized eye care centre dedicated to comprehensive pediatric eye care and squint management for children and adults. Led by Dr. Rishika Mutha, Pediatric Ophthalmologist & Adult Squint Surgeon, the clinic provides evaluation and treatment for conditions such as squint (strabismus), pediatric squint, double vision, nystagmus, lazy eye (amblyopia), myopia, and other childhood eye problems. We focus on accurate diagnosis, personalized treatment planning, and clear counselling to help every patient understand their condition and available treatment options. Our aim is to provide compassionate, advanced, and patient-focused eye care for Kids and Adults in a comfortable environment.
-            </p>
-
-            {/* 4 Checkmark List */}
-            {/* <div className="mt-4 flex flex-col gap-2.5">
-              {[
-                'Experienced Squint Specialists',
-                'Advanced Diagnostic & Treatment Technology',
-                'Child Friendly Environment',
-                'Comprehensive Care & Follow-up',
-              ].map((text) => (
-                <div key={text} className="flex items-center gap-2.5">
-                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-clinic-green text-clinic-green">
-                    <Check size={11} strokeWidth={3} />
-                  </div>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-700">{text}</span>
-                </div>
-              ))}
-            </div> */}
-
-            <div className="mt-5">
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center rounded-full bg-clinic-navy px-6 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-clinic-navy-light shadow-sm active:scale-[0.99]"
-              >
-                Know More About Us
-              </Link>
-            </div>
-          </div>
-
-          {/* Column 3: Wide Light-Blue Panel with Top Features and Inset White 4 Stats */}
-          <div className="flex flex-col gap-4 rounded-[28px] bg-[#F5F8FC] p-5 sm:p-6 border border-slate-200/60 shadow-xs">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 items-center">
+          {/* Row 2: The 3rd content (Features and Stats Panel) centered in the row */}
+          <div className="w-full max-w-6xl xl:max-w-7xl mx-auto flex flex-col gap-4 rounded-[28px] bg-[#F5F8FC] p-6 sm:p-8 border border-slate-200/60 shadow-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 items-center">
               {features.map(({ title, subtitle, Icon }) => (
-                <div key={subtitle} className="flex items-center gap-2">
+                <div key={subtitle} className="flex items-center gap-2.5">
                   <div className="text-clinic-navy shrink-0">
                     <Icon size={20} strokeWidth={1.75} />
                   </div>
                   <div className="leading-tight">
-                    <div className="text-xs font-bold text-slate-800">{title}</div>
-                    <div className="text-[11px] font-medium text-slate-500">{subtitle}</div>
+                    <div className="text-xs sm:text-[13px] font-bold text-slate-800">{title}</div>
+                    <div className="text-[11px] font-medium text-slate-500 mt-0.5">{subtitle}</div>
                   </div>
                 </div>
               ))}
@@ -1093,7 +1071,7 @@ export default function Home() {
               className="relative mt-3.5 w-full max-w-sm overflow-hidden rounded-2xl bg-slate-100 aspect-[16/10] cursor-pointer group shadow-sm"
             >
               <img
-                src="/images/gallery/pediatric-care.jpg"
+                src="https://img.youtube.com/vi/WZ2874rS1EA/hqdefault.jpg"
                 alt="Patient Success Story"
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
@@ -1104,14 +1082,15 @@ export default function Home() {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setVideoModalOpen(true)}
+            <a
+              href="https://www.youtube.com/@Thesquintclinic/videos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-3 flex items-center justify-center gap-2 text-xs font-bold text-red-600 hover:text-red-700 transition"
             >
               <YoutubeIcon size={15} />
               <span>Watch more on YouTube</span>
-            </button>
+            </a>
           </div>
 
           {/* Card 3: Virtual Clinic Tour */}
@@ -1194,7 +1173,7 @@ export default function Home() {
                 className="relative mt-3 overflow-hidden rounded-xl bg-slate-100 aspect-[16/10] cursor-pointer group"
               >
                 <img
-                  src="/images/gallery/pediatric-care.jpg"
+                  src="https://img.youtube.com/vi/WZ2874rS1EA/hqdefault.jpg"
                   alt="Patient Success Story"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -1206,14 +1185,15 @@ export default function Home() {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setVideoModalOpen(true)}
+            <a
+              href="https://www.youtube.com/@Thesquintclinic/videos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-3.5 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-red-600 hover:text-red-700 transition"
             >
               <YoutubeIcon size={16} />
               <span>Watch more on YouTube</span>
-            </button>
+            </a>
           </div>
 
           {/* Card 2: Virtual Clinic Tour */}
@@ -1432,7 +1412,7 @@ export default function Home() {
             <div className="aspect-video w-full">
               <iframe
                 className="h-full w-full"
-                src="https://www.youtube.com/embed/VN_5jz1Za3U?autoplay=1"
+                src="https://www.youtube.com/embed/WZ2874rS1EA?autoplay=1"
                 title="Child Eye Care & Squint Clinic Patient Success Story"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
